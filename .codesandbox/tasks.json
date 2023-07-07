@@ -18,25 +18,34 @@
       }
     },
     "build": {
-      "name": "build",
+      "name": "Build",
       "command": "cd frontend && yarn build",
       "runAtStart": false
     },
     "start": {
-      "name": "start",
+      "name": "Start",
       "command": "cd frontend && yarn start",
       "runAtStart": false
     },
     "lint": {
-      "name": "lint",
+      "name": "Lint",
       "command": "cd frontend && yarn lint",
       "runAtStart": false
     },
-    "test": {
-      "name": "test",
-      "command": "cd frontend && yarn test",
+    "ts:lint": {
+      "name": "TS:lint",
+      "command": "cd frontend && yarn ts:lint",
       "runAtStart": false
-      
+    },
+    "test": {
+      "name": "Test",
+      "command": "cd frontend && yarn test",
+      "runAtStart": false      
+    },
+    "coverage": {
+      "name": "Coverage",
+      "command": "cd frontend && yarn coverage",
+      "runAtStart": false
     }
   }
 }

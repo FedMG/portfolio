@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tylint": "ts-standard --fix",
-    "test": "jest"
+    "ts:lint": "ts-standard --fix",
+    "test": "jest",
+    "coverage": "yarn test --coverage"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
