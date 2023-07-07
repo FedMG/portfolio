@@ -1,0 +1,51 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "dev": {
+      "name": "dev",
+      "command": "cd frontend && yarn dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      }
+    },
+    "build": {
+      "name": "Build",
+      "command": "cd frontend && yarn build",
+      "runAtStart": false
+    },
+    "start": {
+      "name": "Start",
+      "command": "cd frontend && yarn start",
+      "runAtStart": false
+    },
+    "lint": {
+      "name": "Lint",
+      "command": "cd frontend && yarn lint",
+      "runAtStart": false
+    },
+    "ts:lint": {
+      "name": "TS:lint",
+      "command": "cd frontend && yarn ts:lint",
+      "runAtStart": false
+    },
+    "test": {
+      "name": "Test",
+      "command": "cd frontend && yarn test",
+      "runAtStart": false      
+    },
+    "coverage": {
+      "name": "Coverage",
+      "command": "cd frontend && yarn coverage",
+      "runAtStart": false
+    }
+  }
+}
