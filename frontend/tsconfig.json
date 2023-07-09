@@ -32,6 +32,11 @@
   },
   "include": [
     "__tests__/**/*.test.tsx",
+    "utilities.d.ts",
+    "types.d.ts",
+    "types.ts",
+    "schemas.d.ts",
+    "**/*.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

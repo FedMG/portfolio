@@ -8,5 +8,13 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)", 
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ]
+    }
+  ]
 }
