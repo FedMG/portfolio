@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile #  it ensures that yarn installs the exact versions.
       - name: Lint
-        run: yarn lint
+        run: cd frontend && yarn lint
 
   build:
     runs-on: ubuntu-20.04
