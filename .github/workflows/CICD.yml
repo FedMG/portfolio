@@ -28,10 +28,10 @@ jobs:
         with:
           cache: 'yarn' # set package manager
           node-version: '16'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile #  it ensures that yarn installs the exact versions.
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile #  it ensures that yarn installs the exact versions.
       - name: Lint
-        run: cd frontend && yarn lint
+        run: yarn lint
 
   build:
     runs-on: ubuntu-20.04
@@ -43,8 +43,8 @@ jobs:
         with:
           cache: 'yarn'
           node-version: '16'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/.next/cache
@@ -65,8 +65,8 @@ jobs:
         with:
           cache: 'yarn'
           node-version: '16'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile
       - name: Test Coverage
         run: yarn coverage
       - uses: codecov/codecov-action@v3
