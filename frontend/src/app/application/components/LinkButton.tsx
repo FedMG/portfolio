@@ -16,3 +16,5 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ children, href, classNam
     </Link>
   )
 }
+
+export default LinkButton

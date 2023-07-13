@@ -13,3 +13,5 @@ export const Header: FC<HeaderProps> = ({ children, labelledby, className }) => 
     </header>
   )
 }
+
+export default Header

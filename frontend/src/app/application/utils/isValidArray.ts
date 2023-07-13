@@ -1,1 +1,1 @@
-export const isValidArray = (item: any) => Array.isArray(item) && item.length > 0
+export const isValidArray = (item: any): boolean => Array.isArray(item) && item.length > 0

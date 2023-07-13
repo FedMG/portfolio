@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import { LinkButton } from '../LinkButton'
-import type { ReactNode, FC } from 'react'
 
-export interface HeaderLogoProps {
-  children: ReactNode
+import type { FC } from 'react'
+import type { BaseComponentProps } from '../../schemas'
+
+export interface HeaderLogoProps extends Pick<BaseComponentProps, 'children'> {
   src: string
   id: string
 }
@@ -25,3 +26,5 @@ export const HeaderLogo: FC<HeaderLogoProps> = ({ children, src, id }) => (
     </div>
   </LinkButton>
 )
+
+export default HeaderLogo
