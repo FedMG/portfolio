@@ -16,7 +16,7 @@
     "dev": {
       "name": "dev",
       "command": "cd frontend && yarn dev",
-      "runAtStart": true,
+      "runAtStart": false,
       "preview": {
         "port": 3000
       }
@@ -44,7 +44,7 @@
     "test": {
       "name": "Test",
       "command": "cd frontend && yarn test",
-      "runAtStart": false      
+      "runAtStart": false
     },
     "coverage": {
       "name": "Coverage",

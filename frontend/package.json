@@ -7,8 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ts:lint": "ts-standard --fix",
+    "ts:lint": "ts-standard",
+    "ts:lint:fix": "ts-standard --fix",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:watch:all": "jest --watchAll",
     "coverage": "yarn test --coverage"
   },
   "dependencies": {
