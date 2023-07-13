@@ -1,0 +1,74 @@
+name: CI/CD
+on:
+  push:
+    branches: [master]
+    paths-ignore: ['**/README.md']
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+    paths-ignore: ['**/README.md']
+    
+jobs:
+  cancel-builds:
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Cancel previous builds
+        uses: styfle/cancel-workflow-action@0.11.0
+#         with:
+#           access_token: ${{ github.token }}
+
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3 # clones repo to the runner's FS. Fetch and apply Github context.
+        with:
+          fetch-depth: 0 # value 0 fetch entire history of the repo. Value 1 fetch latest commit.
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn' # set package manager
+          node-version: '16'
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile #  it ensures that yarn installs the exact versions.
+      - name: Lint
+        run: cd frontend && yarn lint
+
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: '16'
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+      - name: Build
+        run: cd frontend && yarn build
+
+  tests:
+    needs: [lint, build]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: '16'
+      - name: Install Frontend dependencies
+        run: cd frontend && yarn install --frozen-lockfile
+      - name: Test Coverage
+        run: cd frontend && yarn coverage
+      - uses: codecov/codecov-action@v3
+        with:
+         directory: './frontend/'
