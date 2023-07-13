@@ -1,0 +1,13 @@
+name: learn-github-actions # custom name of the workflow
+run-name: ${{ github.actor }} is learning GitHub Actions # name of workflow when runs
+on: [push] # push is the event trigger for this workflow file
+jobs: # groups all jobs. Each job is a set of steps
+  check-bats-version: # a job (custom name)
+    runs-on: ubuntu-latest # Runner
+    steps: # groups all steps. Each step can run an action or a shell script
+      - uses: actions/checkout@v3 # step 1: action that allows run scripts or actions against your code
+      - uses: actions/setup-node@v3 # step 2: action that install nodejs
+        with:
+          node-version: '14'
+      - run: npm install -g bats # step 3: command shell script
+      - run: bats -v # step 4: command shell script
