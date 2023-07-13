@@ -52,7 +52,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
       - name: Build
-        run: yarn build
+        run: cd frontend && yarn build
 
   tests:
     needs: [lint, build]
@@ -68,7 +68,7 @@ jobs:
       - name: Install Frontend dependencies
         run: cd frontend && yarn install --frozen-lockfile
       - name: Test Coverage
-        run: yarn coverage
+        run: cd frontend && yarn coverage
       - uses: codecov/codecov-action@v3
         with:
          directory: './frontend/'
