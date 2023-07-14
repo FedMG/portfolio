@@ -1,23 +1,23 @@
-import { LinkButton } from '@/app/application/components'
+import { FooterLink } from '@/app/application/components'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 afterEach(cleanup)
 
-describe('LinkButton component', () => {
-  describe('When is mountend and props are passed', () => {
-    it('Should be rendered correctly', async () => {
+describe('FooterLink component', () => {
+  describe('When users clicks', () => {
+    it('Should be sent to a social network page', async () => {
       // Arrange
-      const text = 'Home'
-      const href = '/'
-      const label = 'Go to Homepage'
+      const text = 'LinkedIn'
+      const href = 'https://www.linkedin.com/'
+      const label = 'Go to LinkedIn'
 
       // Act
       render(
-        <LinkButton href={href} ariaLabel={label} className=''>
+        <FooterLink href={href} ariaLabel={label} className=''>
           {text}
-        </LinkButton>
+        </FooterLink>
       )
 
       const button = await screen.findByLabelText(label)

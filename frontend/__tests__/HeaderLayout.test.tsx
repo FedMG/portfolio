@@ -90,4 +90,24 @@ describe('HeaderLayout component', () => {
       expect(homeLink).toHaveTextContent(label)
     })
   })
+
+  describe('WHEN is mounted', () => {
+    it('SHOULD match with mocked header, navigation and linkButton text', () => {
+      // Arrange
+      const headerMocktext = 'Mocked Header Template Component'
+      const navigationMocktext = 'Mocked Navigation Template Component'
+      const headerLogoMocktext = 'Mocked HeaderLogo Component'
+      const value: HeaderLayoutProps[] = []
+
+      // Act
+      render(
+        <HeaderLayout pages={value} />
+      )
+
+      // Assert
+      expect(screen.getByText(headerMocktext)).toBeInTheDocument()
+      expect(screen.getByText(navigationMocktext)).toBeInTheDocument()
+      expect(screen.getByText(headerLogoMocktext)).toBeInTheDocument()
+    })
+  })
 })

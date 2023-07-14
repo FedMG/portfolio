@@ -16,6 +16,7 @@
     "test": "cd frontend && yarn test",
     "test:watch": "cd frontend && yarn test:watch",
     "test:watch:all": "cd frontend && yarn test:watch:all",
+    "test:ci": "cd frontend && yarn test --ci",
     "coverage": "cd frontend && yarn coverage"
   },
   "devDependencies": {
