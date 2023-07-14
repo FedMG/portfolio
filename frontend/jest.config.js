@@ -1,4 +1,4 @@
-import nextJest from 'next/jest.js'
+const nextJest = require('next/jest.js')
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -13,13 +13,14 @@ const customJestConfig = {
   // collectCoverage: true,
   // skipFull - hide coverage report lines for all fully-covered files
   // coverageReporters: ['clover', 'json', 'lcov', ['text', {skipFull: true}]],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleDirectories: ['node_modules', '<rootDir>'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
+    '!src/**/layout.tsx',
     '!src/**/*.d.ts',
     '!src/**/*types.ts',
     '!src/**/*.ref.ts',
@@ -31,4 +32,4 @@ const customJestConfig = {
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(customJestConfig)
+module.exports = createJestConfig(customJestConfig)

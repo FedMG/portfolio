@@ -1,10 +1,23 @@
 {
   "name": "workspace",
+  "description": "Personal Portfolio to show my last projects and activity",
   "workspaces": [
     "frontend/*"
   ],
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "cd frontend && yarn dev",
+    "build": "cd frontend && yarn build",
+    "start": "cd frontend && yarn start",
+    "lint": "cd frontend && yarn lint",
+    "ts:lint": "cd frontend && yarn ts:lint",
+    "ts:lint:fix": "cd frontend && yarn ts:lint:fix",
+    "test": "cd frontend && yarn test",
+    "test:watch": "cd frontend && yarn test:watch",
+    "test:watch:all": "cd frontend && yarn test:watch:all",
+    "coverage": "cd frontend && yarn coverage"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
