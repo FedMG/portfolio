@@ -2,7 +2,7 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { HeaderLogo } from '@/app/application/components/layout/HeaderLogo'
+import { HeaderLogo } from '@/app/application/components'
 
 afterEach(cleanup)
 

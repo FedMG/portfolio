@@ -1,4 +1,4 @@
-import { Header, Navigation } from '@/app/application/components'
+import { Footer, Header, Navigation } from '@/app/application/components'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
@@ -53,6 +53,32 @@ describe('Navigation template component', () => {
       expect(nav).toHaveAttribute('aria-label', label)
       expect(nav).toHaveAttribute('class', className)
       expect(nav).toHaveTextContent(text)
+    })
+  })
+})
+
+describe('Footer template component', () => {
+  describe('WHEN children, label and className are passed', () => {
+    it('SHOULD renders a Footer', async () => {
+      // Arrange
+      const text = 'Test-children-property'
+      const className = 'Test-class-property'
+      const ariaLabel = 'Footer-label'
+
+      // Act
+      render(
+        <Footer className={className} ariaLabel={ariaLabel}>
+          {text}
+        </Footer>
+      )
+
+      const footer = await screen.findByRole('contentinfo')
+
+      // Assert
+      expect(footer).toBeInTheDocument()
+      expect(footer).toHaveAttribute('aria-label', ariaLabel)
+      expect(footer).toHaveAttribute('class', className)
+      expect(footer).toHaveTextContent(text)
     })
   })
 })
