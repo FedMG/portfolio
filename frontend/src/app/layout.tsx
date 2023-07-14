@@ -6,20 +6,20 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'AstraDev',
+  title: 'AstraDev'
 }
 
-export default function RootLayout({
+export default function RootLayout ({
   children
 }: {
   children: React.ReactNode
-}) {
+}): JSX.Element {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
         <HeaderLayout pages={headerPages} />
         {children}
-        </body>
+      </body>
     </html>
   )
 }
