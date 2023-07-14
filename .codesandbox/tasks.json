@@ -46,10 +46,20 @@
       "command": "cd frontend && yarn test",
       "runAtStart": false
     },
+    "test:watch": {
+      "name": "Test Watch",
+      "command": "cd frontend && yarn test --watch",
+      "runAtStart": false
+    },
+    "test:watch:all": {
+      "name": "Test WatchAll",
+      "command": "cd frontend && yarn test --watchAll",
+      "runAtStart": false
+    },
     "coverage": {
       "name": "Coverage",
       "command": "cd frontend && yarn coverage",
-      "runAtStart": false
+      "runAtStart": true
     }
   }
 }
