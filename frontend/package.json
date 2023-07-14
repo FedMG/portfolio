@@ -12,7 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:watch:all": "jest --watchAll",
-    "coverage": "yarn test --coverage"
+    "test:ci": "jest --ci",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",

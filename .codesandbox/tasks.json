@@ -37,8 +37,13 @@
       "runAtStart": false
     },
     "ts:lint": {
-      "name": "TS:lint",
+      "name": "TS Lint",
       "command": "cd frontend && yarn ts:lint",
+      "runAtStart": false
+    },
+    "ts:lint:fix": {
+      "name": "TS Lint Fix",
+      "command": "cd frontend && yarn ts:lint:fix",
       "runAtStart": false
     },
     "test": {
@@ -56,10 +61,15 @@
       "command": "cd frontend && yarn test --watchAll",
       "runAtStart": false
     },
+    "ci": {
+      "name": "Test CI",
+      "command": "cd frontend && yarn test --ci",
+      "runAtStart": false
+    },
     "coverage": {
       "name": "Coverage",
       "command": "cd frontend && yarn coverage",
-      "runAtStart": true
+      "runAtStart": false
     }
   }
 }
