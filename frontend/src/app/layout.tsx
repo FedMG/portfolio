@@ -19,7 +19,7 @@ export default function RootLayout ({
       <body className={inter.className}>
         <HeaderLayout pages={headerPages} />
         {children}
-        <FooterLayout />
+        {/* <FooterLayout /> */}
       </body>
     </html>
   )
