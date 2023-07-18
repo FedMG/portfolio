@@ -6,8 +6,9 @@
       "dom.iterable",
       "esnext"
     ],
-    "strictFunctionTypes": false,
-    "noImplicitAny": false,
+    "strictFunctionTypes": true,
+    // "noImplicitAny": true,
+    // noImplicitReturns: false,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -27,7 +28,9 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./src/*",
+        "./src/app/*",
+        "./src/app/application/*"
       ]
     }
   },
