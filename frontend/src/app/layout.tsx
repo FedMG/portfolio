@@ -9,17 +9,13 @@ export const metadata = {
   title: 'AstraDev'
 }
 
-export default function RootLayout ({
-  children
-}: {
-  children: React.ReactNode
-}): JSX.Element {
+export default function RootLayout ({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang='en'>
       <body className={inter.className}>
         <HeaderLayout pages={headerPages} />
         {children}
-        {/* <FooterLayout /> */}
+        <FooterLayout />
       </body>
     </html>
   )
