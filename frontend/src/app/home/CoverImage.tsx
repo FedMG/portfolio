@@ -1,16 +1,16 @@
 import Image from 'next/image'
 
 interface CoverImageProps {
-  url: string
+  src: string
   alt: string
 }
 
-export const CoverImage: React.FC<CoverImageProps> = ({ url, alt }) => (
+export const CoverImage: React.FC<CoverImageProps> = ({ src, alt }) => (
   <Image
     priority
     role='img'
     alt={alt}
-    src={url}
+    src={src}
     quality={40}
     width={300}
     height={300}

@@ -22,7 +22,7 @@ export const CoverCarousel = (): JSX.Element => {
   return (
     <TrackedCarousel className='h-[340px]' ItemsTracker={SquareIconsWihTrackerPosition}>
       {slides.map(({ url, id, alt }) => (
-        <CoverImage key={id} url={url} alt={alt} />
+        <CoverImage key={id} src={url} alt={alt} />
       ))}
     </TrackedCarousel>
   )
