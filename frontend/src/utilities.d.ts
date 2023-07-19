@@ -7,3 +7,4 @@ export type AddVoidCallback<T> = T extends undefined ? CallbackWithoutParams : C
 export type AddCallback<T> = () => T
 
 export type AddReactComponent<T> = React.ComponentType<T>
+export type GetProperties<T> = React.ComponentProps<T>
