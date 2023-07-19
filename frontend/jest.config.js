@@ -16,7 +16,17 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleDirectories: ['node_modules', '<rootDir>'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    // NOTE: if you update tsconfig path patterns, also update this patterns!
+
+    // string pattern
+    // '^@/(.*)$': '<rootDir>/src/$1',
+
+    // string[] pattern
+    '^@/(.*)$': [
+      '<rootDir>/src/$1',
+      '<rootDir>/src/app/$1',
+      '<rootDir>/src/app/application/$1'
+    ],
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
