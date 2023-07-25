@@ -1,0 +1,69 @@
+import { cleanup, render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+
+import { CoverCarousel } from '@/app/home'
+import type { BaseComponentProps } from '@/app/application/schemas'
+
+type Children = Pick<BaseComponentProps, 'children'>
+
+jest.mock('@/app/home/CoverImage.tsx', () => ({
+  CoverImage: () => <img data-testid='mocked-cover-image' />
+}))
+
+jest.mock('@/app/application/components/carousel/TrackedCarousel.tsx', () => ({
+  TrackedCarousel: ({ children }: Children) => (
+    <div data-testid='mocked-tracked-carousel'>{children} Mocked TrackedCarousel Component</div>
+  )
+}))
+
+afterEach(cleanup)
+
+describe('CoverCarousel Component', () => {
+  describe('WHEN is mounted', () => {
+    it('SHOULD be rendered correctly', () => {
+      // Arrange
+      const items = [
+        {
+          id: 0,
+          url: 'image-url',
+          alt: 'alt-text'
+        },
+      ]
+
+      // Act
+      const { container } = render(<CoverCarousel items={items} />)
+
+      // Assert
+      expect(container).toBeInTheDocument()
+    })
+
+    it('SHOULD match mocked components', () => {
+      // Arrange
+      const items = [
+        {
+          id: 0,
+          url: 'image-url',
+          alt: 'alt-text'
+        },
+        {
+          id: 1,
+          url: 'image-url',
+          alt: 'alt-text'
+        }
+      ]   
+
+      // Act
+      const { getByTestId, getAllByTestId } = render(<CoverCarousel items={items} />)
+      const trackedCarousel = getByTestId('mocked-tracked-carousel')
+      const images = getAllByTestId('mocked-cover-image')
+      const [firstImage, secondImage] = images
+
+      // Assert
+      expect(trackedCarousel).toBeInTheDocument()
+
+      expect(firstImage).toBeInTheDocument()
+      expect(secondImage).toBeInTheDocument()
+      expect(images).toHaveLength(2)
+    })
+  })
+})

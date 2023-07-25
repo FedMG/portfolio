@@ -1,3 +1,9 @@
+export interface Slides {
+  id: number
+  url: string
+  alt: string
+}
+
 export const slides = [
   {
     id: 0,

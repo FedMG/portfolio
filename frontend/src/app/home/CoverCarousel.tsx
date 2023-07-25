@@ -4,24 +4,29 @@ import { CoverImage } from './CoverImage'
 import { TrackedCarousel } from '@/application/components/carousel'
 import { withTrackerPosition } from '@/application/hocs'
 
-import { SquareIcon } from '@/application/assets'
-import { slides } from './data.ref'
+import { SquareIcon as IconComponent } from '@/application/assets'
+import type { Slides } from './data.ref'
 
 const positionColor = {
   default: 'text-gray-900 fill-gray-900 hover:text-gray-800 hover:fill-gray-800',
   active: 'text-white fill-white'
 }
 
-export const CoverCarousel = (): JSX.Element => {
+interface CoverCarouselProps {
+  items: Slides[]
+}
+
+export const CoverCarousel: React.FC<CoverCarouselProps> = ({ items }): JSX.Element => {
+  const carouselLength = items.length - 1
   const SquareIconsWihTrackerPosition = withTrackerPosition({
-    IconComponent: SquareIcon,
-    carouselLength: slides.length - 1,
+    IconComponent,
+    carouselLength,
     positionColor
   })
 
   return (
     <TrackedCarousel className='h-[340px]' ItemsTracker={SquareIconsWihTrackerPosition}>
-      {slides.map(({ url, id, alt }) => (
+      {items.map(({ url, id, alt }) => (
         <CoverImage key={id} src={url} alt={alt} />
       ))}
     </TrackedCarousel>
