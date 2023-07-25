@@ -5,7 +5,7 @@ import { CarouselButton } from './CarouselButton'
 import { LeftArrowIcon, RightArrowIcon } from '@/application/assets'
 
 import type { BaseComponentProps } from '@/application/schemas'
-import type { EnhancedIconComponentProps } from '../../hocs'
+import type { EnhancedIconComponentProps } from '@/application/hocs'
 import type { AddReactComponent } from '@/utilities'
 
 const defaultBtnIcons = {
