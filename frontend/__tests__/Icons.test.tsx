@@ -1,50 +1,40 @@
-import { GithubIcon, LinkedInIcon } from '@/app/application/assets'
-
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
+import { GithubIcon, LinkedInIcon, LeftArrowIcon, RightArrowIcon, SquareIcon } from '@/app/application/assets'
+
 afterEach(cleanup)
 
-describe('GithubIcon Component', () => {
-  describe('WHEN is mounted', () => {
-    it('SHOULD render it correctly', async () => {
-      // Arrange
-      const classValue = 'null'
+const components = [
+  { Element: LinkedInIcon, name: 'LinkedInIcon', role: 'img' },
+  { Element: GithubIcon, name: 'GithubIcon', role: 'img' },
+  { Element: LeftArrowIcon, name: 'LeftArrowIcon', role: 'button' },
+  { Element: RightArrowIcon, name: 'RightArrowIcon', role: 'button' },
+  { Element: SquareIcon, name: 'SquareIcon', role: 'presentation' }
+]
 
-      // Act
-      render(<GithubIcon className={classValue} />)
-      const svg = screen.getByRole('img')
-      const path = svg.querySelector('path')
-      const title = svg.querySelector('title')
+components.forEach(({ Element, name, role }) => {
+  describe(`${name} Component`, () => {
+    describe('WHEN is mounted', () => {
+      it('SHOULD render it correctly', async () => {
+        // Arrange
+        const classValue = 'null'
 
-      // Assert
-      expect(svg).toBeInTheDocument()
-      expect(svg).toHaveAttribute('class', classValue)
+        // Act
+        render(<Element className={classValue} />)
+        const svg = screen.getByRole(role)
+        const path = svg.querySelector('path')
+        const title = svg.querySelector('title')
+        // Assert
+        expect(svg).toBeInTheDocument()
+        expect(svg).toHaveAttribute('class')
 
-      expect(path).toBeInTheDocument()
-      expect(title).toBeInTheDocument()
-    })
-  })
-})
+        expect(path).toBeInTheDocument()
 
-describe('LinkedInIcon Component', () => {
-  describe('WHEN is mounted', () => {
-    it('SHOULD render it correctly', async () => {
-      // Arrange
-      const classValue = 'null'
-
-      // Act
-      render(<LinkedInIcon className={classValue} />)
-      const svg = screen.getByRole('img')
-      const path = svg.querySelector('path')
-      const title = svg.querySelector('title')
-
-      // Assert
-      expect(svg).toBeInTheDocument()
-      expect(svg).toHaveAttribute('class', classValue)
-
-      expect(path).toBeInTheDocument()
-      expect(title).toBeInTheDocument()
+        if (title != null) {
+          expect(title).toBeInTheDocument()
+        }
+      })
     })
   })
 })

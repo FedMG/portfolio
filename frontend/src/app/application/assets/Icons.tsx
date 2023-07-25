@@ -18,3 +18,25 @@ export const LinkedInIcon: FC<IconsProps> = ({ className }) => (
     <SVGElement.Title title='LinkedIn' />
   </SVGElement>
 )
+
+export const SquareIcon: FC<IconsProps> = ({ className }) => (
+  <SVGElement
+    viewBox='0 0 24 24'
+    role='presentation'
+    className={`w-6 h-6 fill-none stroke-2 stroke-current ${className}`}
+  >
+    <SVGElement.Path d='M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z' />
+  </SVGElement>
+)
+
+export const LeftArrowIcon: FC<IconsProps> = ({ className }) => (
+  <SVGElement viewBox='0 0 24 24' role='button' className={`w-6 h-6 fill-current ${className}`}>
+    <SVGElement.Path d='M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z' />
+  </SVGElement>
+)
+
+export const RightArrowIcon: FC<IconsProps> = ({ className }) => (
+  <SVGElement viewBox='0 0 24 24' role='button' className={`w-6 h-6 fill-current ${className}`}>
+    <SVGElement.Path d='M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z' />
+  </SVGElement>
+)

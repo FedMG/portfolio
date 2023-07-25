@@ -1,22 +1,22 @@
 // Partial solution to the following warning by using findBy queries or waitFor function.
 // "Warning: An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...)"
-
-import { HeaderLayout, HeaderLayoutProps } from '@/app/application/components'
-
 import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+
+import { HeaderLayout, HeaderLayoutProps } from '@/app/application/components'
+import type { Children } from '@/app/application/schemas'
 
 afterEach(cleanup)
 
 jest.mock('../src/app/application/components/templates/Header.tsx', () => ({
   __esModule: true,
-  Header: ({ children }) => <header>{children} Mocked Header Template Component</header>
+  Header: ({ children }: Children) => <header>{children} Mocked Header Template Component</header>
 }))
 
 jest.mock('../src/app/application/components/templates/Navigation.tsx', () => ({
   __esModule: true,
-  Navigation: ({ children }) => <nav>{children} Mocked Navigation Template Component</nav>
+  Navigation: ({ children }: Children) => <nav>{children} Mocked Navigation Template Component</nav>
 }))
 
 jest.mock('../src/app/application/components/layout/HeaderLogo.tsx', () => ({

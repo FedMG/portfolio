@@ -2,7 +2,7 @@ import type { AriaAttributes, FC } from 'react'
 import type { BaseComponentProps } from '../../schemas'
 import type { DropUndefined } from '@/utilities'
 
-interface FooterLinkProps extends BaseComponentProps {
+export interface FooterLinkProps extends BaseComponentProps {
   href: string
   ariaLabel: DropUndefined<AriaAttributes, 'aria-label'>
 }
