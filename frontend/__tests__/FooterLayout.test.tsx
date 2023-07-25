@@ -1,28 +1,31 @@
-import { FooterLayout } from '@/app/application/components'
-
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-afterEach(cleanup)
+import { FooterLayout, FooterLinkProps } from '@/app/application/components'
+import { BaseComponentProps } from '@/app/application/schemas'
 
-jest.mock('../src/app/application/components/templates/Footer.tsx', () => ({
-  __esModule: true,
-  Footer: ({ children }) => <footer>{children} Mocked Footer Template Component</footer>
+type Children = Pick<BaseComponentProps, 'children'>
+
+afterEach(() => cleanup)
+
+jest.mock('@/app/application/assets', () => ({
+  GithubIcon: () => <svg role='img'>Mocked GithubIcon Component</svg>,
+  LinkedInIcon: () => <svg role='img'>Mocked LinkedInIcon Component</svg>,
+  // SquareIcon: () => <div/>, // I had not iclude it, why?
+  LeftArrowIcon: () => <div/>, // I had include it for a warning message
+  RightArrowIcon: () => <div />, // I had include it for a warning message
 }))
 
-jest.mock('../src/app/application/components/layout/FooterLink.tsx', () => ({
-  __esModule: true,
-  FooterLink: ({ children, href, ariaLabel, className }) => (
+jest.mock('@/app/application/components/templates/Footer.tsx', () => ({
+  Footer: ({ children }: Children) => <footer>{children} Mocked Footer Template Component</footer>
+}))
+
+jest.mock('@/app/application/components/layout/FooterLink.tsx', () => ({
+  FooterLink: ({ children, href, ariaLabel, className }: FooterLinkProps) => (
     <a href={href} aria-label={ariaLabel} className={className}>
       {children} Mocked FooterLink Component
     </a>
   )
-}))
-
-jest.mock('../src/app/application/assets/Icons.tsx', () => ({
-  esModule: true,
-  GithubIcon: () => <svg role='img'>Mocked GithubIcon Component</svg>,
-  LinkedInIcon: () => <svg role='img'>Mocked LinkedInIcon Component</svg>
 }))
 
 describe('FooterLayout component', () => {
