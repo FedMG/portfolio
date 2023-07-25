@@ -2,7 +2,7 @@ import { withTrackerPosition } from '@/app/application/hocs'
 import { cleanup, render } from '@testing-library/react'
 
 afterEach(() => {
-  cleanup
+  cleanup()
   jest.restoreAllMocks()
   jest.resetAllMocks()
   jest.clearAllMocks()
@@ -21,11 +21,11 @@ describe('withTrackerPosition HOC', () => {
   describe('WHEN is called', () => {
     it('SHOULD be passed an object as argument', () => {
       // Arrange
-      const spied = { withTrackerPosition: withTrackerPosition }
+      const spied = { withTrackerPosition }
       const spy = jest.spyOn(spied, 'withTrackerPosition')
 
       // Act
-      const EnhancedIconComponent = spied.withTrackerPosition(stubArgument)
+      void spied.withTrackerPosition(stubArgument)
 
       // Assert
       expect(spy).toHaveBeenCalledTimes(1)
@@ -34,7 +34,7 @@ describe('withTrackerPosition HOC', () => {
 
     it('SHOULD returns a EnhancedIconComponent', () => {
       // Arrange
-      const spied = { withTrackerPosition: withTrackerPosition }
+      const spied = { withTrackerPosition }
       const spy = jest.spyOn(spied, 'withTrackerPosition')
 
       // Act
@@ -55,7 +55,7 @@ describe('withTrackerPosition HOC', () => {
 
       // Act
       const { getAllByTestId } = render(<spied.EnhancedIconComponent position={0} />)
-      
+
       // Assert
       expect(spy).toHaveBeenCalledTimes(1)
       expect(getAllByTestId('icon-component')).toHaveLength(3)
@@ -73,6 +73,5 @@ describe('withTrackerPosition HOC', () => {
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith({ position: 0 }, {})
     })
-
   })
 })

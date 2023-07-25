@@ -28,8 +28,8 @@ describe('useCarouselEffect hook', () => {
       const { result } = renderHook(() => useCarouselEffect())
       const { next, prev } = result.current
 
-      const eventNextResponse = () => act(() => next())
-      const eventPrevResponse = () => act(() => prev())
+      const eventNextResponse = (): void => act(() => next())
+      const eventPrevResponse = (): void => act(() => prev())
 
       // Assert
       expect(eventNextResponse).toThrowError(errorMessage)
@@ -41,7 +41,7 @@ describe('useCarouselEffect hook', () => {
     it('SHOULD returns a reference of a HTMLElement', () => {
       // Arrange
       const MockedComponent = forwardRef((_props, ref) => {
-        return <div ref={ref}></div>
+        return <div ref={ref} />
       })
 
       // Act

@@ -10,7 +10,7 @@ describe('Button Component', () => {
   describe('WHEN is mounted and props are passed', () => {
     it('SHOULD be rendered correctly', async () => {
       // Arrange
-      const click = () => undefined
+      const click = (): void => undefined
       const buttonName = 'Open'
       const className = 'null'
 
@@ -50,7 +50,6 @@ describe('Button Component', () => {
     })
   })
 
-
   describe('WHEN the user doesn\'t clicks the button', () => {
     it('SHOULD not executed a click event', async () => {
       // Arrange
@@ -59,7 +58,7 @@ describe('Button Component', () => {
 
       // Act
       render(
-        <Button className={'null'} onClick={click}>
+        <Button className='null' onClick={click}>
           {buttonName}
         </Button>
       )
@@ -70,5 +69,4 @@ describe('Button Component', () => {
       expect(click).not.toHaveBeenCalled()
     })
   })
-
 })

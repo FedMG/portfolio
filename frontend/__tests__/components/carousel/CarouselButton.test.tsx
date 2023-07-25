@@ -28,7 +28,7 @@ describe('CarouselButton Component', () => {
 
       // Act
       render(
-        <CarouselButton ariaLabel={ariaLabel} className={'null'} onClick={onClick}>
+        <CarouselButton ariaLabel={ariaLabel} className='null' onClick={onClick}>
           {buttonIcon}
         </CarouselButton>
       )
@@ -51,8 +51,8 @@ describe('CarouselButton Component', () => {
 
       // Act
       render(
-        <CarouselButton ariaLabel='null' className={'null'} onClick={() => {}}>
-          {'null'}
+        <CarouselButton ariaLabel='null' className='null' onClick={() => {}}>
+          null
         </CarouselButton>
       )
 

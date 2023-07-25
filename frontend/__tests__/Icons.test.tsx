@@ -10,7 +10,7 @@ const components = [
   { Element: GithubIcon, name: 'GithubIcon', role: 'img' },
   { Element: LeftArrowIcon, name: 'LeftArrowIcon', role: 'button' },
   { Element: RightArrowIcon, name: 'RightArrowIcon', role: 'button' },
-  { Element: SquareIcon, name: 'SquareIcon', role: 'presentation' },
+  { Element: SquareIcon, name: 'SquareIcon', role: 'presentation' }
 ]
 
 components.forEach(({ Element, name, role }) => {
@@ -31,7 +31,7 @@ components.forEach(({ Element, name, role }) => {
 
         expect(path).toBeInTheDocument()
 
-        if (title) {
+        if (title != null) {
           expect(title).toBeInTheDocument()
         }
       })

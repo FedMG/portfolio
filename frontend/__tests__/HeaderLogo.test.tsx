@@ -3,12 +3,13 @@ import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import { HeaderLogo } from '@/app/application/components'
+import type { Children } from '@/app/application/schemas'
 
 afterEach(cleanup)
 
 jest.mock('../src/app/application/components/LinkButton', () => ({
   __esModule: true,
-  LinkButton: ({ children }) => <a role='button' href='/'>{children} Mocked LinkButton Component</a>
+  LinkButton: ({ children }: Children) => <a role='button' href='/'>{children} Mocked LinkButton Component</a>
 }))
 
 // Unit under test

@@ -2,9 +2,7 @@ import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import { CoverCarousel } from '@/app/home'
-import type { BaseComponentProps } from '@/app/application/schemas'
-
-type Children = Pick<BaseComponentProps, 'children'>
+import type { Children } from '@/app/application/schemas'
 
 jest.mock('@/app/home/CoverImage.tsx', () => ({
   CoverImage: () => <img data-testid='mocked-cover-image' />
@@ -27,7 +25,7 @@ describe('CoverCarousel Component', () => {
           id: 0,
           url: 'image-url',
           alt: 'alt-text'
-        },
+        }
       ]
 
       // Act
@@ -50,7 +48,7 @@ describe('CoverCarousel Component', () => {
           url: 'image-url',
           alt: 'alt-text'
         }
-      ]   
+      ]
 
       // Act
       const { getByTestId, getAllByTestId } = render(<CoverCarousel items={items} />)

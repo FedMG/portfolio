@@ -31,7 +31,7 @@ describe('TrackedCarousel Component', () => {
   describe('WHEN is mounted and image element is passed as children', () => {
     it('SHOULD be rendered correctly and appears in the document', async () => {
       // Arrange
-      const ItemsTracker = () => <div />
+      const ItemsTracker = (): JSX.Element => <div />
 
       // Act
       render(
@@ -48,7 +48,7 @@ describe('TrackedCarousel Component', () => {
   describe('WHEN is mounted and ItemsTracker is passed to props', () => {
     it('SHOULD be rendered correctly and it appears in the document', async () => {
       // Arrange
-      const ItemsTracker = () => <span data-testid='stub-items-tracker' />
+      const ItemsTracker = (): JSX.Element => <span data-testid='stub-items-tracker' />
 
       // Act
       render(
@@ -65,7 +65,7 @@ describe('TrackedCarousel Component', () => {
   describe('WHEN is mounted and btnIcons property is not passed to props', () => {
     it('SHOULD be rendered correctly by using default values and appears in the document', async () => {
       // Arrange
-      const ItemsTracker = () => <span />
+      const ItemsTracker = (): JSX.Element => <span />
 
       // Act
       render(
@@ -87,7 +87,7 @@ describe('TrackedCarousel Component', () => {
 
     it('SHOULD match mocked CarouselButton, LeftArrowIcon, RightArrowIcon components', () => {
       // Arrange
-      const ItemsTracker = () => <span />
+      const ItemsTracker = (): JSX.Element => <span />
 
       // Act
       const { getAllByTestId, getByTestId } = render(

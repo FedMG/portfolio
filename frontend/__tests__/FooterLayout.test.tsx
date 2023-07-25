@@ -2,9 +2,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import { FooterLayout, FooterLinkProps } from '@/app/application/components'
-import { BaseComponentProps } from '@/app/application/schemas'
-
-type Children = Pick<BaseComponentProps, 'children'>
+import type { Children } from '@/app/application/schemas'
 
 afterEach(() => cleanup)
 
@@ -12,8 +10,8 @@ jest.mock('@/app/application/assets', () => ({
   GithubIcon: () => <svg role='img'>Mocked GithubIcon Component</svg>,
   LinkedInIcon: () => <svg role='img'>Mocked LinkedInIcon Component</svg>,
   // SquareIcon: () => <div/>, // I had not iclude it, why?
-  LeftArrowIcon: () => <div/>, // I had include it for a warning message
-  RightArrowIcon: () => <div />, // I had include it for a warning message
+  LeftArrowIcon: () => <div />, // I had include it for a warning message
+  RightArrowIcon: () => <div /> // I had include it for a warning message
 }))
 
 jest.mock('@/app/application/components/templates/Footer.tsx', () => ({

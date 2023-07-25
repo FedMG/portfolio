@@ -11,7 +11,8 @@ interface CarouselButtonProps extends BaseComponentProps {
 
 export const CarouselButton: FC<CarouselButtonProps> = ({ onClick, ariaLabel, className, children }) => (
   <div
-    className={`text-white ${className} group/boxleft cursor-pointer hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%]`}>
+    className={`text-white ${className} group/boxleft cursor-pointer hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%]`}
+  >
     <Button onClick={onClick} className='group/left group/right' ariaLabel={ariaLabel}>
       {children}
     </Button>
