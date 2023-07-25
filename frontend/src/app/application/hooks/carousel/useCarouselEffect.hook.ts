@@ -19,7 +19,7 @@ export interface CarouselItemsResult {
 }
 
 export const useCarouselEffect = (): CarouselEffectResult => {
-  const carousel = useRef<CarouselReferenceType | null>(null)
+  const carousel = useRef<CarouselReferenceType>(null)
   const [itemPosition, setItemPosition] = useState(0)
 
   const carouselItems = (): CarouselItemsResult => {
