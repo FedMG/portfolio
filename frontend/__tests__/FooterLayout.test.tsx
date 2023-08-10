@@ -1,12 +1,12 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { FooterLayout, FooterLinkProps } from '@/app/application/components'
-import type { Children } from '@/app/application/schemas'
+import { FooterLayout, FooterLinkProps } from '@/app/modules/components/layout'
+import type { Children } from '@/app/modules/schemas'
 
 afterEach(() => cleanup)
 
-jest.mock('@/app/application/assets', () => ({
+jest.mock('@/app/modules/assets', () => ({
   GithubIcon: () => <svg role='img'>Mocked GithubIcon Component</svg>,
   LinkedInIcon: () => <svg role='img'>Mocked LinkedInIcon Component</svg>,
   // SquareIcon: () => <div/>, // I had not iclude it, why?
@@ -14,11 +14,11 @@ jest.mock('@/app/application/assets', () => ({
   RightArrowIcon: () => <div /> // I had include it for a warning message
 }))
 
-jest.mock('@/app/application/components/templates/Footer.tsx', () => ({
+jest.mock('@/app/modules/components/templates/Footer.tsx', () => ({
   Footer: ({ children }: Children) => <footer>{children} Mocked Footer Template Component</footer>
 }))
 
-jest.mock('@/app/application/components/layout/FooterLink.tsx', () => ({
+jest.mock('@/app/modules/components/layout/FooterLink.tsx', () => ({
   FooterLink: ({ children, href, ariaLabel, className }: FooterLinkProps) => (
     <a href={href} aria-label={ariaLabel} className={className}>
       {children} Mocked FooterLink Component

@@ -1,6 +1,6 @@
-import { Footer } from '../templates/Footer'
+import { GithubIcon, LinkedInIcon } from '../../assets'
+import { Footer } from '../templates'
 import { FooterLink } from './FooterLink'
-import { GithubIcon, LinkedInIcon } from '@/application/assets'
 
 const PAGE_ALIGN_BREAKPOINT = 'py-8 px-14 sm:px-10 lg:px-16 xl:px-24 mt-5'
 

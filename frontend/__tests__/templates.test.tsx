@@ -1,4 +1,4 @@
-import { Footer, Header, Navigation } from '@/app/application/components'
+import { Footer, Header, Navigation } from '@/app/modules/components/templates'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'

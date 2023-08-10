@@ -1,4 +1,4 @@
-import { LinkButton } from '@/app/application/components'
+import { LinkButton } from '@/app/modules/components'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'

@@ -1,4 +1,4 @@
-import { withTrackerPosition } from '@/app/application/hocs'
+import { withTrackerPosition } from '@/app/modules/hocs'
 import { cleanup, render } from '@testing-library/react'
 
 afterEach(() => {

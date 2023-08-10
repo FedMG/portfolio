@@ -1,4 +1,4 @@
-import { FooterLayout, HeaderLayout, headerPages } from './application/components'
+import { FooterLayout, HeaderLayout, headerPages } from './modules/components/layout'
 
 import { Inter } from 'next/font/google'
 import './globals.css'

@@ -2,12 +2,13 @@ import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-import { Button, CarouselButton } from '@/app/application/components'
+import { Button } from '@/app/modules/components'
+import { CarouselButton } from '@/app/modules/components/carousel'
 import { GetProperties } from '@/utilities'
 
 type ButtonProps = GetProperties<typeof Button>
 
-jest.mock('@/app/application/components/Button.tsx', () => ({
+jest.mock('@/app/modules/components/Button.tsx', () => ({
   Button: ({ children, onClick, ariaLabel }: ButtonProps) => (
     <button onClick={onClick} data-testid='mocked-button' aria-label={ariaLabel}>
       {children} Mocked Button Component

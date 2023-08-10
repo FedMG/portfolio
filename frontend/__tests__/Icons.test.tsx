@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { GithubIcon, LinkedInIcon, LeftArrowIcon, RightArrowIcon, SquareIcon } from '@/app/application/assets'
+import { GithubIcon, LinkedInIcon, LeftArrowIcon, RightArrowIcon, SquareIcon } from '@/app/modules/assets'
 
 afterEach(cleanup)
 

@@ -8,9 +8,5 @@ export const headerPages: HeaderLayoutProps[] = [
   {
     path: '/about',
     label: 'About me'
-  },
-  {
-    path: '/categories',
-    label: 'Contact'
   }
 ]

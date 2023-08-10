@@ -1,4 +1,4 @@
-import { CoverCarousel } from './home/CoverCarousel'
+import { CoverCarousel } from './home/components'
 import { slides } from './home/data.ref'
 
 export default function Home (): JSX.Element {

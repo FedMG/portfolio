@@ -4,22 +4,22 @@ import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-import { HeaderLayout, HeaderLayoutProps } from '@/app/application/components'
-import type { Children } from '@/app/application/schemas'
+import { HeaderLayout, HeaderLayoutProps } from '@/app/modules/components/layout'
+import type { Children } from '@/app/modules/schemas'
 
 afterEach(cleanup)
 
-jest.mock('../src/app/application/components/templates/Header.tsx', () => ({
+jest.mock('../src/app/modules/components/templates/Header.tsx', () => ({
   __esModule: true,
   Header: ({ children }: Children) => <header>{children} Mocked Header Template Component</header>
 }))
 
-jest.mock('../src/app/application/components/templates/Navigation.tsx', () => ({
+jest.mock('../src/app/modules/components/templates/Navigation.tsx', () => ({
   __esModule: true,
   Navigation: ({ children }: Children) => <nav>{children} Mocked Navigation Template Component</nav>
 }))
 
-jest.mock('../src/app/application/components/layout/HeaderLogo.tsx', () => ({
+jest.mock('../src/app/modules/components/layout/HeaderLogo.tsx', () => ({
   __esModule: true,
   HeaderLogo: () => <div>Mocked HeaderLogo Component</div>
 }))

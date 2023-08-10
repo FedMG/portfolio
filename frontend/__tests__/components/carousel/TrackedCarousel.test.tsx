@@ -1,18 +1,18 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { TrackedCarousel } from '@/app/application/components'
-import { BaseComponentProps } from '@/app/application/schemas'
+import { TrackedCarousel } from '@/app/modules/components/carousel'
+import { BaseComponentProps } from '@/app/modules/schemas'
 
 type Children = Pick<BaseComponentProps, 'children'>
 
-jest.mock('@/app/application/components/carousel/CarouselButton.tsx', () => ({
+jest.mock('@/app/modules/components/carousel/CarouselButton.tsx', () => ({
   CarouselButton: ({ children }: Children) => (
     <button data-testid='mocked-carousel-button'>{children} Mocked CarouselButton Component</button>
   )
 }))
 
-jest.mock('@/app/application/assets', () => ({
+jest.mock('@/app/modules/assets', () => ({
   LeftArrowIcon: () => (
     <svg data-testid='mocked-left-arrow-icon'> Mocked LeftArrowIcon Component</svg>
   ),
@@ -21,7 +21,7 @@ jest.mock('@/app/application/assets', () => ({
   )
 }))
 
-jest.mock('@/app/application/hooks/carousel', () => ({
+jest.mock('@/app/modules/hooks/carousel', () => ({
   useCarouselEffect: jest.fn(() => ({ increment: jest.fn() }))
 }))
 

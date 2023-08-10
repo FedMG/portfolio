@@ -1,4 +1,4 @@
-import { FooterLink } from '@/app/application/components'
+import { FooterLink } from '@/app/modules/components/layout'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'

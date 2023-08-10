@@ -1,4 +1,4 @@
-import { SVGElement } from '@/app/application/components'
+import { SVGElement } from '@/app/modules/components'
 
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
