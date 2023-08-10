@@ -20,7 +20,6 @@ jest.mock('../src/app/modules/components/templates/Navigation.tsx', () => ({
 }))
 
 jest.mock('../src/app/modules/components/layout/HeaderLogo.tsx', () => ({
-  __esModule: true,
   HeaderLogo: () => <div>Mocked HeaderLogo Component</div>
 }))
 

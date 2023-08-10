@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { isValidArray } from '../../utils'
 import { Header, Navigation } from '../templates'
-import HeaderLogo from './HeaderLogo'
+import { HeaderLogo } from './HeaderLogo'
 
 const PAGE_ALIGN_BREAKPOINT = 'px-6 sm:px-10 lg:px-16 xl:px-24 py-2.5'
 
