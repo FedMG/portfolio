@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { CoverImage } from '@/app/home'
+import { CoverImage } from '@/app/home/components'
 
 describe('CoverImage Component', () => {
   describe('WHEN is mounted and props are passed', () => {

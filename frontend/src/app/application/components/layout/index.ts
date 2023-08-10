@@ -1,5 +1,0 @@
-export * from './HeaderLayout'
-export * from './HeaderLogo'
-export * from './headerPages.ref'
-export * from './FooterLayout'
-export * from './FooterLink'

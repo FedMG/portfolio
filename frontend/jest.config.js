@@ -25,7 +25,7 @@ const customJestConfig = {
     '^@/(.*)$': [
       '<rootDir>/src/$1',
       '<rootDir>/src/app/$1',
-      '<rootDir>/src/app/application/$1'
+      '<rootDir>/src/app/modules/$1'
     ]
   },
   collectCoverageFrom: [

@@ -2,7 +2,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
-import { Button } from '@/app/application/components'
+import { Button } from '@/app/modules/components'
 
 afterEach(cleanup)
 

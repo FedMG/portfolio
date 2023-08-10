@@ -1,5 +1,5 @@
 import { act, cleanup, render, renderHook } from '@testing-library/react'
-import { useCarouselEffect } from '@/app/application/hooks'
+import { useCarouselEffect } from '@/app/modules/hooks'
 import { forwardRef } from 'react'
 
 afterEach(cleanup)

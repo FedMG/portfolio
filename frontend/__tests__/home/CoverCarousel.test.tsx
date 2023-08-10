@@ -1,14 +1,14 @@
 import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { CoverCarousel } from '@/app/home'
-import type { Children } from '@/app/application/schemas'
+import { CoverCarousel } from '@/app/home/components'
+import type { Children } from '@/app/modules/schemas'
 
-jest.mock('@/app/home/CoverImage.tsx', () => ({
+jest.mock('@/app/home/components/CoverImage.home.tsx', () => ({
   CoverImage: () => <img data-testid='mocked-cover-image' />
 }))
 
-jest.mock('@/app/application/components/carousel/TrackedCarousel.tsx', () => ({
+jest.mock('@/app/modules/components/carousel/TrackedCarousel.tsx', () => ({
   TrackedCarousel: ({ children }: Children) => (
     <div data-testid='mocked-tracked-carousel'>{children} Mocked TrackedCarousel Component</div>
   )
