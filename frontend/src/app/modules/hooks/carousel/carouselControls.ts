@@ -11,7 +11,7 @@ export const nextControl = (carouselItems: CarouselItemsParameter): void => {
   style.transition = '550ms ease-in-out all'
   style.transform = `translateX(-${firstItem.offsetWidth}px)`
 
-  container.addEventListener('transitionend', function updatePosition () {
+  container.addEventListener('transitionend', function updatePosition() {
     style.transition = 'none'
     style.transform = 'translateX(0)'
 

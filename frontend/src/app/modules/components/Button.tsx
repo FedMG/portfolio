@@ -8,13 +8,18 @@ interface ButtonProps extends BaseComponentProps {
   ariaLabelledby?: DropUndefined<AriaAttributes, 'aria-labelledby'>
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, className, ariaLabel, ariaLabelledby }) => (
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  className,
+  ariaLabel,
+  ariaLabelledby
+}) => (
   <button
     onClick={onClick}
     className={`${className}`}
     aria-label={ariaLabel}
-    aria-labelledby={ariaLabelledby}
-  >
+    aria-labelledby={ariaLabelledby}>
     {children}
   </button>
 )

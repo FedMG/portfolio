@@ -13,7 +13,7 @@
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
-    "dev": {
+    "frontend:dev": {
       "name": "dev",
       "command": "cd frontend && yarn dev",
       "runAtStart": false,
@@ -21,57 +21,62 @@
         "port": 3000
       }
     },
-    "build": {
-      "name": "Build",
+    "frontend:build": {
+      "name": "Frontend Build",
       "command": "cd frontend && yarn build",
       "runAtStart": false
     },
-    "start": {
-      "name": "Start",
+    "frontend:start": {
+      "name": "Frontend Start",
       "command": "cd frontend && yarn start",
       "runAtStart": false,
       "preview": {
         "port": 3000
       }
     },
-    "lint": {
-      "name": "Lint",
+    "frontend:lint": {
+      "name": "Frontend Lint",
       "command": "cd frontend && yarn lint",
       "runAtStart": false
     },
-    "ts:lint": {
-      "name": "TS Lint",
+    "frontend:ts:lint": {
+      "name": "Frontend TS Lint",
       "command": "cd frontend && yarn ts:lint",
       "runAtStart": false
     },
-    "ts:lint:fix": {
-      "name": "TS Lint Fix",
+    "frontend:ts:lint:fix": {
+      "name": "Frontend TS Lint Fix",
       "command": "cd frontend && yarn ts:lint:fix",
       "runAtStart": false
     },
-    "test": {
-      "name": "Test",
+    "frontend:test": {
+      "name": "Frontend Test",
       "command": "cd frontend && yarn test",
       "runAtStart": false
     },
-    "test:watch": {
-      "name": "Test Watch",
+    "frontend:test:watch": {
+      "name": "Frontend Test Watch",
       "command": "cd frontend && yarn test --watch",
       "runAtStart": false
     },
-    "test:watch:all": {
-      "name": "Test WatchAll",
+    "frontend:test:watch:all": {
+      "name": "Frontend Test WatchAll",
       "command": "cd frontend && yarn test --watchAll",
       "runAtStart": false
     },
-    "ci": {
-      "name": "Test CI",
+    "frontend:ci": {
+      "name": "Frontend Test CI",
       "command": "cd frontend && yarn test --ci",
       "runAtStart": false
     },
-    "coverage": {
-      "name": "Coverage",
+    "frontend:coverage": {
+      "name": "Frontend Coverage",
       "command": "cd frontend && yarn coverage",
+      "runAtStart": false
+    },
+    "format": {
+      "name": "Format",
+      "command": "yarn format",
       "runAtStart": false
     }
   }

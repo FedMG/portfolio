@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strictFunctionTypes": true,
     // "noImplicitAny": true,
     // noImplicitReturns: false,
@@ -27,11 +23,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*",
-        "./src/app/*",
-        "./src/app/modules/*"
-      ]
+      "@/*": ["./src/*", "./src/app/*", "./src/app/modules/*"]
     }
   },
   "include": [
@@ -47,7 +39,5 @@
     "**/*.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

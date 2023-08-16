@@ -50,7 +50,7 @@ describe('Button Component', () => {
     })
   })
 
-  describe('WHEN the user doesn\'t clicks the button', () => {
+  describe("WHEN the user doesn't clicks the button", () => {
     it('SHOULD not executed a click event', async () => {
       // Arrange
       const click = jest.fn()
