@@ -23,11 +23,12 @@ export const useCarouselEffect = (): CarouselEffectResult => {
   const [itemPosition, setItemPosition] = useState(0)
 
   const carouselItems = (): CarouselItemsResult => {
-    if (carousel.current == null) throw new Error('Carousel reference was not provided. Check ref property')
-    return ({
+    if (carousel.current == null)
+      throw new Error('Carousel reference was not provided. Check ref property')
+    return {
       items: carousel.current.children,
       container: carousel.current
-    })
+    }
   }
 
   const prevItemHandler = (): void => {

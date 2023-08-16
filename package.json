@@ -2,26 +2,44 @@
   "name": "workspace",
   "description": "Personal Portfolio to show my last projects and activity",
   "workspaces": [
-    "frontend/*"
+    "frontend/*",
+    "backend/*"
   ],
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cd frontend && yarn dev",
-    "build": "cd frontend && yarn build",
-    "start": "cd frontend && yarn start",
-    "lint": "cd frontend && yarn lint",
-    "ts:lint": "cd frontend && yarn ts:lint",
-    "ts:lint:fix": "cd frontend && yarn ts:lint:fix",
-    "test": "cd frontend && yarn test",
-    "test:watch": "cd frontend && yarn test:watch",
-    "test:watch:all": "cd frontend && yarn test:watch:all",
-    "test:ci": "cd frontend && yarn test --ci",
-    "coverage": "cd frontend && yarn coverage"
+    "frontend:dev": "cd frontend && yarn dev",
+    "frontend:build": "cd frontend && yarn build",
+    "frontend:start": "cd frontend && yarn start",
+    "frontend:lint": "cd frontend && yarn lint",
+    "frontend:ts:lint": "cd frontend && yarn ts:lint",
+    "frontend:ts:lint:fix": "cd frontend && yarn ts:lint:fix",
+    "frontent:test": "cd frontend && yarn test",
+    "frontent:test:watch": "cd frontend && yarn test:watch",
+    "frontent:test:watch:all": "cd frontend && yarn test:watch:all",
+    "frontent:test:ci": "cd frontend && yarn test --ci",
+    "frontent:coverage": "cd frontend && yarn coverage",
+    "backend:dev": "cd backend && ts-node -r tsconfig-paths/register index.ts --watch",
+    "backend:start": "cd backend && ts-node -r tsconfig-paths/register index.ts",
+    "backend:eslint": "cd backend && eslint .",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "prettier": "^3.0.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

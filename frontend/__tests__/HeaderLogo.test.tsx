@@ -1,4 +1,3 @@
-
 import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
@@ -9,7 +8,11 @@ afterEach(cleanup)
 
 jest.mock('../src/app/modules/components/LinkButton', () => ({
   __esModule: true,
-  LinkButton: ({ children }: Children) => <a role='button' href='/'>{children} Mocked LinkButton Component</a>
+  LinkButton: ({ children }: Children) => (
+    <a role='button' href='/'>
+      {children} Mocked LinkButton Component
+    </a>
+  )
 }))
 
 // Unit under test

@@ -26,7 +26,9 @@ export const HeaderLayout: React.FC<{ pages: HeaderLayoutProps[] }> = ({ pages }
           <ul className='bg-inherit flex flex-row justify-end items-center'>
             {isValidArray(pages) &&
               pages.map(({ path, label }) => (
-                <li key={label} className='text-center bg-inherit hover:bg-gray-300 active:bg-gray-200 rounded-md'>
+                <li
+                  key={label}
+                  className='text-center bg-inherit hover:bg-gray-300 active:bg-gray-200 rounded-md'>
                   <Link
                     href={path}
                     className='py-3 px-7 sm:px-12 block text-gray-800 hover:text-[#764EF3] text-md font-medium border-b border-gray-100 lg:border-0'>

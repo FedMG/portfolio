@@ -99,9 +99,7 @@ describe('HeaderLayout component', () => {
       const value: HeaderLayoutProps[] = []
 
       // Act
-      render(
-        <HeaderLayout pages={value} />
-      )
+      render(<HeaderLayout pages={value} />)
 
       // Assert
       expect(screen.getByText(headerMocktext)).toBeInTheDocument()

@@ -22,11 +22,7 @@ const customJestConfig = {
     // '^@/(.*)$': '<rootDir>/src/$1',
 
     // string[] pattern
-    '^@/(.*)$': [
-      '<rootDir>/src/$1',
-      '<rootDir>/src/app/$1',
-      '<rootDir>/src/app/modules/$1'
-    ]
+    '^@/(.*)$': ['<rootDir>/src/$1', '<rootDir>/src/app/$1', '<rootDir>/src/app/modules/$1']
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',

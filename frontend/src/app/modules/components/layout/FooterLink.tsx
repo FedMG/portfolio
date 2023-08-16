@@ -11,8 +11,7 @@ export const FooterLink: FC<FooterLinkProps> = ({ children, href = '#', ariaLabe
   <a
     href={href}
     aria-label={ariaLabel}
-    className={`w-full h-full max-h-[35px] max-w-[35px] p-1 ${className}`}
-  >
+    className={`w-full h-full max-h-[35px] max-w-[35px] p-1 ${className}`}>
     {children}
   </a>
 )
