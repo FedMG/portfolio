@@ -1,0 +1,52 @@
+[
+  {
+    "title": "E-commerce Fullstask",
+    "description": "I developed an e-commerce website. The application follows a monolithic architecture with the frontend consuming a RESTful API. To optimize SEO, I incorporated Server-Side Rendering (SSR) and Static Site Generation (SSG). To enhance scalability, I adhered to Clean Architecture and SOLID principles. Moreover, I improved accessibility by implementing ARIA attributes.",
+    "technologies": ["React.js", "Next.js", "TypeScript", "TailwindCSS"],
+    "image": {
+      "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230013/portfolio-projects/e-commerce-homepage-2_nd31fj.webp",
+      "alt": "A homepage of an ecommerce project with a cover carousel and a card carousel of products."
+    },
+    "links": {
+      "repository": "https://github.com/FedMG/ecommerce-mern-next-ts#readme",
+      "website": "https://astrashop.vercel.app"
+    }
+  },
+  {
+    "title": "E-commerce API",
+    "description": "I developed a robust Node.js Express server. The project implements a RESTful API architecture, which allows for efficient handling of CRUD requests and features multiple endpoints and support for query and route parameters. For data persistence, I integrated MongoDB and implemented Cloudinary, a cloud service to store product images, thereby enhancing the overall user experience. To ensure secure user interactions, I configured user authentication endpoints with JWT, enabling smooth user login and registration. Moreover, I enforced essential security measures, including API rate limiting and CORS.",
+    "technologies": ["Node.jS", "Express", "MongoDB", "Mongoose", "Cloudinary"],
+    "image": {
+      "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692229946/portfolio-projects/e-commerce-api_iydddi.webp",
+      "alt": "A homepage API page with documented guide for all the API features."
+    },
+    "links": {
+      "repository": "https://github.com/FedMG/ecommerce-mern-next-ts/tree/master/backend#readme",
+      "website": "https://e-commerce-store-api.onrender.com/"
+    }
+  },
+  {
+    "title": "Snapshot Serializer",
+    "technologies": ["TypeScript", "Pretty-format", "Jest", "Testing Library"],
+    "description": "I developed a TypeScript Pretty-format Plugin, which proves highly valuable for applying snapshot tests with Jest & Testing Library. The plugin filters snapshot attributes, providing precise test control and improving the testing workflow. Additionally, it includes a feature to exclude specific attributes from filtering, further enhancing its flexibility",
+    "image": {
+      "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230557/portfolio-projects/serializer-test_vlsi03.webp",
+      "alt": "A test example using the serialiser to clean specified attributes from the snapshot."
+    },
+    "links": {
+      "repository": "https://github.com/FedMG/snapshot-serializer-plugin#readme"
+    }
+  },
+  {
+    "title": "Salon Appointment Scheduler",
+    "description": "I developed a Dynamic Bash Script integrated with a PostgreSQL database to manage a Salon Appointment Scheduler application using various commands. To optimize data management, I created different tables with efficient JOINS. The script allows the creation of new users and facilitates the scheduling of appointments for one or multiple services within the required schedule. I utilized various types of inserts and SQL queries to store and validate user inputs against the relational database. Additionally, I enhanced the terminal's visualization using Bash styles. This project is one of five in-depth challenges I completed using Bash and PostgreSQL, available on my GitHub repository",
+    "technologies": ["Bash", "PostgreSQL"],
+    "image": {
+      "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230180/portfolio-projects/salon-result-1_r9umsc.webp",
+      "alt": "A list of Salon services with a user interaction to make an appointment"
+    },
+    "links": {
+      "repository": "https://github.com/FedMG/salon-appointment-scheduler-bash-psql#readme"
+    }
+  }
+]

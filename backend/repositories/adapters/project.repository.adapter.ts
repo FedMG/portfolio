@@ -1,20 +1,38 @@
 import type { Project, ProjectSchema } from '@/models'
 
-export class ProjectAdapter {
-  adaptAll(response: ProjectSchema[]): Project[] {
-    return response.map(({ id, title, finished, description, image, links }) => ({
+class Adapter {
+  // must be privated
+  public adapter({ id, title, description, stack, image, links }: ProjectSchema): Project {
+    const getStack = (stack: ProjectSchema['stack']) => stack.map(({ name }) => name)
+    const technologies = stack?.length > 0 ? getStack(stack) : ['']
+
+    const _image = image && {
+      alt: image.alt,
+      src: image.src
+    }
+
+    const _links = links && {
+      repository: links.repository,
+      website: links.website
+    }
+
+    return {
       id,
       title,
       description,
-      finished: finished,
-      image: {
-        alt: image?.alt,
-        src: image?.src
-      },
-      links: {
-        repository: links?.repository,
-        website: links?.website
-      }
-    }))
+      technologies,
+      image: _image,
+      links: _links
+    }
+  }
+}
+
+export class ProjectAdapter extends Adapter {
+  public adaptOne(response: ProjectSchema): Project {
+    return this.adapter(response)
+  }
+
+  public adaptAll(response: ProjectSchema[]): Project[] {
+    return response.map(this.adapter)
   }
 }

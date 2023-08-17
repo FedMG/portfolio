@@ -1,8 +1,13 @@
+import 'express-async-errors'
+
 // core
 import express from 'express'
 
 // security
-// import cors from 'cors'
+import cors from 'cors'
+import helmet from 'helmet'
+import rateLimiter from 'express-rate-limit'
+import { errorHandlerMiddleware, notFound } from './middlewares'
 
 // application
 import { projects } from './routes'
@@ -12,17 +17,29 @@ import morgan from 'morgan'
 
 const app = express()
 
-// https://astradev.vercel.app
-// const corsConfig = {
-//   origin: [ '' ],
-//   optionsSuccessStatus: 200
-// }
+app.set('trust proxy', 1)
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 100
+  })
+)
+
+// https://???.vercel.app
+const corsConfig = {
+  origin: [''],
+  optionsSuccessStatus: 200
+}
 
 app.use(express.json())
 app.use(morgan('dev'))
-// app.use(cors(corsConfig))
+app.use(cors(corsConfig))
+app.use(helmet())
 
 app.use('/api/v1/projects', projects)
+
+app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 const PORT = process.env.SERVER_PORT || 5500
 app.listen(PORT, () => console.log(`Listening port ${PORT}...`))
