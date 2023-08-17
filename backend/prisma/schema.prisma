@@ -10,28 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Project {
   id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(60)
+  title     String   @db.VarChar(80)
   image     Image?
   links     Link?
-  description   String?  @db.VarChar(255)
-  finished      Boolean  @default(false)
+  stack     Technology[]
+  description   String?  @db.Text
 }
 
 model Image {
   id    Int     @id @default(autoincrement())
   src   String  @db.VarChar(200) @unique
-  alt   String  @db.VarChar(150)
+  alt   String  @db.VarChar(180)
   project    Project  @relation(fields: [projectId], references: [id])
   projectId  Int      @unique
 }
 
 model Link {
   id          Int     @id @default(autoincrement())
-  repository  String  @db.VarChar(100)
-  website     String   @db.VarChar(100)
+  repository  String  @db.VarChar(130)
+  website     String?   @db.VarChar(130)
   project    Project  @relation(fields: [projectId], references: [id])
   projectId  Int      @unique
+}
+
+model Technology {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(60)
+  project    Project  @relation(fields: [projectId], references: [id])
+  projectId  Int
 }
