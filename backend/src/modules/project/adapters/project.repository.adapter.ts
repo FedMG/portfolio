@@ -2,7 +2,8 @@ import type { Project, ProjectSchema } from '@/modules/models'
 
 class Adapter {
   // must be privated
-  public adapter({ id, title, description, stack, image, links }: ProjectSchema): Project {
+  public adapter(project: ProjectSchema): Project {
+    const { id, title, description, stack, image, links } = project
     const getStack = (stack: ProjectSchema['stack']) => stack.map(({ name }) => name)
     const technologies = stack?.length > 0 ? getStack(stack) : ['']
 

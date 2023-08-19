@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="index.css">
     <meta name="author" content="FedMG">
     <meta name="keywords" content="Portfolio-API">
     <meta name="description" content="Personal Portfolio API">
@@ -10,6 +10,37 @@
     <meta charset="UTF-8">
     <title>Portfolio API</title>
   </head>
-  <body id='index'>
-  </body>
-</html>
+  <body id='index' class='body'>
+    <header class='header'>
+      <div class='header-content'>
+        <div class='container-rocket-logo'>
+          <img src='./rocket-logo.ico' class='rocket-logo' alt='rocket logo' />
+        </div>
+        <h1 class='header-title'>Portfolio API</h1>
+      </div>
+    </header>
+    <main class='main'>
+      <div class='main-inner-container'>
+      <article class='body-inner-container'>
+        <div class='body-inner-subcontainer'>
+          <section class='section-separation' id='brief-description'>
+          <h2><a href='#index'>Brief description</a></h2>
+          <p>
+            A simple Portfolio-API with all the main projects and details.
+          </p>
+        </section>
+        
+
+        <section class='section-separation' id='endpoints'>
+          <h2><a href='#index'>Endpoints</a></h2>
+          <ul type='none'>
+            <li><code>api/v1/projects</code> get a list of projects.</li>
+          </ul>
+
+          <p class='note'><strong>Note:</strong> to use POST, PATCH, DELETE request you need an API key.</p>
+        </section>
+      </div>
+    </article>
+    </div>
+    </main>
+  </body></html>

@@ -42,5 +42,8 @@
   },
   "engines": {
     "node": ">=16.13"
+  },
+  "prisma": {
+    "schema": "./src/database/prisma/schema.prisma"
   }
 }

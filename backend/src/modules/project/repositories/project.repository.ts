@@ -7,14 +7,15 @@ class ProjectTools {
   private async setImage(image: Project['image']) {
     if (!image) return undefined
 
-    const isThereImage = await prismaInstance.image.findFirst({ where: { src: image.src } })
+    const isThereImage = await prismaInstance.image.findUnique({ where: { src: image.src } })
     if (isThereImage)
       throw new BadRequestError('SRC value already exists, please enter another source image.')
 
     return { create: image }
   }
 
-  private async setStack(technologies: string[]) {
+  // later FIX: There is a error wht the connect relations
+  public async setStack(technologies: string[]) {
     if (!technologies) return undefined
 
     // find matches technologies and fetch them
@@ -73,35 +74,50 @@ export class ProjectRepository extends ProjectAdapter {
     return this.adaptOne(project)
   }
 
-  public async updateProject(id: number, updates: Project): Promise<Project | undefined> {
-    const existingProduct = await this.projects.findUnique({
-      where: { id },
-      include: { image: true, links: true, stack: true }
-    })
-    if (!existingProduct) throw new NotFoundError(`Product with id ${id} has not been found`)
+  public async updateProject(id: number, updates: Project): Promise<Project> {
+    const project = await this.projects.findUnique({ where: { id } })
+    if (!project) throw new NotFoundError(`Project with id ${id} was not found.`)
 
-    // later make it dynamic
-    const project = await this.projects.update({
+    // later find a better way to do this maybe with OnUpdate
+    const imageOnDB = await prismaInstance.image.findUnique({ where: { id } })
+    const linkOnDB = await prismaInstance.link.findUnique({ where: { id } })
+    const { technologies, image, links, ...rest } = updates
+
+    const isImage = imageOnDB ? { alt: imageOnDB.alt, src: imageOnDB.src } : undefined
+    const isLink = linkOnDB
+      ? { website: linkOnDB.website, repository: linkOnDB.repository }
+      : undefined
+
+    const data = {
+      stack: await this.projectTool.setStack(technologies),
+      image: { update: image ?? isImage },
+      links: { update: links ?? isLink },
+      ...rest
+    }
+
+    const updatedProject = await this.projects.update({
       where: { id },
       include: { image: true, links: true, stack: true },
-      data: await this.projectTool.getData(updates)
+      data
     })
 
-    if (!project) return undefined
-    return this.adaptOne(project)
+    return this.adaptOne(updatedProject)
   }
 
   public async deleteProject(id: number): Promise<void> {
-    this.projects.delete({ where: { id } })
+    const project = await this.projects.findUnique({ where: { id } })
+    if (!project) throw new NotFoundError(`Project with id ${id} was not found.`)
+
+    await this.projects.delete({ where: { id } })
   }
 
-  public async getProjectById(id: number): Promise<Project | undefined> {
-    const project = await this.projects.findFirst({
+  public async getProjectById(id: number): Promise<Project> {
+    const project = await this.projects.findUnique({
       where: { id },
       include: { image: true, links: true, stack: true }
     })
+    if (!project) throw new NotFoundError(`Project with id ${id} was not found.`)
 
-    if (!project) return undefined
     return this.adaptOne(project)
   }
 
@@ -109,6 +125,7 @@ export class ProjectRepository extends ProjectAdapter {
     const projects = await this.projects.findMany({
       include: { image: true, links: true, stack: true }
     })
+    if (!projects) throw new NotFoundError(`There are not projects.`)
 
     return this.adaptAll(projects)
   }
