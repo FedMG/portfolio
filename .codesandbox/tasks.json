@@ -14,7 +14,7 @@
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "frontend:dev": {
-      "name": "dev",
+      "name": "Frontend Dev",
       "command": "cd frontend && yarn dev",
       "runAtStart": false,
       "preview": {
@@ -39,14 +39,9 @@
       "command": "cd frontend && yarn lint",
       "runAtStart": false
     },
-    "frontend:ts:lint": {
-      "name": "Frontend TS Lint",
-      "command": "cd frontend && yarn ts:lint",
-      "runAtStart": false
-    },
-    "frontend:ts:lint:fix": {
-      "name": "Frontend TS Lint Fix",
-      "command": "cd frontend && yarn ts:lint:fix",
+    "frontend:eslint": {
+      "name": "Frontend Eslint",
+      "command": "cd frontend && yarn eslint",
       "runAtStart": false
     },
     "frontend:test": {
