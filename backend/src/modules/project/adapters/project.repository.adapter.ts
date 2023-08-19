@@ -1,4 +1,4 @@
-import type { Project, ProjectSchema } from "@/modules/models"
+import type { Project, ProjectSchema } from '@/modules/models'
 
 class Adapter {
   // must be privated

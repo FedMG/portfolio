@@ -1,4 +1,3 @@
-
 import express from 'express'
 
 // import { apiKeyLayer } from '@/middlewares'
@@ -14,15 +13,11 @@ const projectController = new ProjectController(projectService)
 const router = express.Router()
 
 // apiKeyLayer
-router
-  .route('/')
-  .get(projectController.getAllProjects.bind(projectController))
-  // .post(apiKeyLayer, projectController.createProject.bind(projectController))
+router.route('/').get(projectController.getAllProjects.bind(projectController))
+// .post(apiKeyLayer, projectController.createProject.bind(projectController))
 
-router
-  .route('/:id')
-  .get(projectController.getProjectById.bind(projectController))
-  // .patch(apiKeyLayer, projectController.updateProject.bind(projectController))
-  // .delete(apiKeyLayer, projectController.deleteProject.bind(projectController))
+router.route('/:id').get(projectController.getProjectById.bind(projectController))
+// .patch(apiKeyLayer, projectController.updateProject.bind(projectController))
+// .delete(apiKeyLayer, projectController.deleteProject.bind(projectController))
 
 export { router }
