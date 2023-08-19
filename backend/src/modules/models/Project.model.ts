@@ -2,7 +2,7 @@ import type {
   Project as ProjectModel,
   Image as ImageModel,
   Link as LinkModel,
-  Technologies as TechnologiesModel
+  Technology as TechnologiesModel
 } from '@prisma/client'
 
 // external

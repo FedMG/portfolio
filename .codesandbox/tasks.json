@@ -78,6 +78,21 @@
       "name": "Format",
       "command": "yarn format",
       "runAtStart": false
+    },
+    "backend:dev": {
+      "name": "Backend Dev",
+      "command": "cd backend && yarn ts-node -r tsconfig-paths/register index.ts",
+      "runAtStart": false
+    },
+    "backend:start": {
+      "name": "Backend Start",
+      "command": "cd backend && yarn ts-node -r tsconfig-paths/register index.ts",
+      "runAtStart": false
+    },
+    "backend:eslint": {
+      "name": "Backend Eslint",
+      "command": "cd backend && yarn eslint .",
+      "runAtStart": false
     }
   }
 }

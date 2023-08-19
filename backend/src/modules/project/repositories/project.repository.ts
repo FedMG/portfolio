@@ -1,14 +1,24 @@
-import PrismaInstance from '@/database'
-import { ProjectAdapter } from './adapters'
-
-import type { Project } from '@/models'
+import { prismaInstance } from '@/database'
+import { ProjectAdapter } from '../adapters'
+import { BadRequestError, NotFoundError } from '@/errors'
+import type { Project } from '@/modules/models'
 
 class ProjectTools {
+  private async setImage(image: Project['image']) {
+    if (!image) return undefined
+
+    const isThereImage = await prismaInstance.image.findFirst({ where: { src: image.src } })
+    if (isThereImage)
+      throw new BadRequestError('SRC value already exists, please enter another source image.')
+
+    return { create: image }
+  }
+
   private async setStack(technologies: string[]) {
     if (!technologies) return undefined
 
     // find matches technologies and fetch them
-    const mathedTechnologies = await PrismaInstance.technology.findMany({
+    const mathedTechnologies = await prismaInstance.technology.findMany({
       where: { name: { in: technologies } }
     })
 
@@ -28,7 +38,7 @@ class ProjectTools {
   async getData({ image, links, technologies, ...rest }: Project) {
     return {
       ...rest,
-      image: { create: image ?? undefined },
+      image: await this.setImage(image),
       links: { create: links ?? undefined },
       stack: await this.setStack(technologies)
     }
@@ -36,7 +46,7 @@ class ProjectTools {
 }
 
 export class ProjectRepository extends ProjectAdapter {
-  private projects = PrismaInstance.project
+  private projects = prismaInstance.project
   private projectTool: ProjectTools
 
   constructor() {
@@ -44,7 +54,7 @@ export class ProjectRepository extends ProjectAdapter {
     this.projectTool = new ProjectTools()
   }
 
-  async createManyProjects(newProjects: Project[]): Promise<void> {
+  public async createManyProjects(newProjects: Project[]): Promise<void> {
     await Promise.all(
       newProjects.map(async project => {
         await this.projects.create({
@@ -54,7 +64,7 @@ export class ProjectRepository extends ProjectAdapter {
     )
   }
 
-  async createProject(newProject: Project): Promise<Project> {
+  public async createProject(newProject: Project): Promise<Project> {
     const project = await this.projects.create({
       include: { image: true, links: true, stack: true },
       data: await this.projectTool.getData(newProject)
@@ -63,22 +73,29 @@ export class ProjectRepository extends ProjectAdapter {
     return this.adaptOne(project)
   }
 
-  async updateProject(id: number, updatedProject: Project): Promise<Project | undefined> {
+  public async updateProject(id: number, updates: Project): Promise<Project | undefined> {
+    const existingProduct = await this.projects.findUnique({
+      where: { id },
+      include: { image: true, links: true, stack: true }
+    })
+    if (!existingProduct) throw new NotFoundError(`Product with id ${id} has not been found`)
+
+    // later make it dynamic
     const project = await this.projects.update({
       where: { id },
       include: { image: true, links: true, stack: true },
-      data: await this.projectTool.getData(updatedProject)
+      data: await this.projectTool.getData(updates)
     })
 
     if (!project) return undefined
     return this.adaptOne(project)
   }
 
-  async deleteProject(id: number): Promise<void> {
+  public async deleteProject(id: number): Promise<void> {
     this.projects.delete({ where: { id } })
   }
 
-  async getProjectById(id: number): Promise<Project | undefined> {
+  public async getProjectById(id: number): Promise<Project | undefined> {
     const project = await this.projects.findFirst({
       where: { id },
       include: { image: true, links: true, stack: true }
@@ -88,10 +105,11 @@ export class ProjectRepository extends ProjectAdapter {
     return this.adaptOne(project)
   }
 
-  async getAllProjects(): Promise<Project[]> {
+  public async getAllProjects(): Promise<Project[]> {
     const projects = await this.projects.findMany({
       include: { image: true, links: true, stack: true }
     })
+
     return this.adaptAll(projects)
   }
 }
