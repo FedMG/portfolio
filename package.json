@@ -19,9 +19,9 @@
     "frontent:test:watch:all": "cd frontend && yarn test:watch:all",
     "frontent:test:ci": "cd frontend && yarn test --ci",
     "frontent:coverage": "cd frontend && yarn coverage",
-    "backend:dev": "cd backend && ts-node -r tsconfig-paths/register index.ts --watch",
-    "backend:start": "cd backend && ts-node -r tsconfig-paths/register index.ts",
-    "backend:eslint": "cd backend && eslint .",
+    "backend:dev": "cd backend && yarn ts-node -r tsconfig-paths/register index.ts --watch",
+    "backend:start": "cd backend && yarn ts-node -r tsconfig-paths/register index.ts",
+    "backend:eslint": "cd backend && yarn eslint .",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "devDependencies": {
