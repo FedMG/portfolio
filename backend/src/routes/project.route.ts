@@ -12,7 +12,6 @@ const projectController = new ProjectController(projectService)
 
 const router = express.Router()
 
-// apiKeyLayer
 router.route('/').get(projectController.getAllProjects.bind(projectController))
 // .post(apiKeyLayer, projectController.createProject.bind(projectController))
 

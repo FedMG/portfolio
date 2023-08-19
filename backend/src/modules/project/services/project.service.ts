@@ -1,32 +1,44 @@
+import { BadRequestError } from '@/errors'
 import { ProjectRepository } from '../repositories'
 import type { Project } from '@/modules/models'
+import { isArrayOfObjects, isNumber, isObject } from '@/utils'
 
 // later add implementations and the interface
 export class ProjectService {
   constructor(private projectRepository: ProjectRepository) {}
 
-  // later implement validations
-  public async createManyProject(project: Project[]): Promise<void> {
-    return this.projectRepository.createManyProjects(project)
+  public async createManyProject(projects: Project[]): Promise<void> {
+    if (!isArrayOfObjects(projects))
+      throw new BadRequestError('Invalid arguments, must be an array of project object.')
+    return await this.projectRepository.createManyProjects(projects)
   }
 
-  public async createProject(project: Project): Promise<Project> {
-    return this.projectRepository.createProject(project)
+  public async createProject(payload: Project): Promise<Project> {
+    if (!isObject(payload))
+      throw new BadRequestError('Invalid argument, must be a valid project object.')
+    const project = await this.projectRepository.createProject(payload)
+    if (!project) throw new BadRequestError('There are invalid arguments in the project object.')
+    return project
   }
 
   public async getProjectById(id: number): Promise<Project | undefined> {
-    return this.projectRepository.getProjectById(id)
+    if (!isNumber(id)) throw new BadRequestError(`The value ${id} is not a number.`)
+    const project = await this.projectRepository.getProjectById(id)
+    return project
   }
 
-  public async updateProject(id: number, updatedProject: Project): Promise<Project | undefined> {
-    return this.projectRepository.updateProject(id, updatedProject)
+  public async updateProject(id: number, updates: Project): Promise<Project | undefined> {
+    if (!isNumber(id)) throw new BadRequestError(`The value ${id} is not a number.`)
+    const project = await this.projectRepository.updateProject(id, updates)
+    return project
   }
 
   public async deleteProject(id: number): Promise<void> {
-    return this.projectRepository.deleteProject(id)
+    if (!isNumber(id)) throw new BadRequestError(`The value ${id} is not a number.`)
+    return await this.projectRepository.deleteProject(id)
   }
 
   public async getAllProjects(): Promise<Project[]> {
-    return this.projectRepository.getAllProjects()
+    return await this.projectRepository.getAllProjects()
   }
 }
