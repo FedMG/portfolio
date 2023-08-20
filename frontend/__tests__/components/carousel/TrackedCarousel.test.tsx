@@ -36,7 +36,7 @@ describe('TrackedCarousel Component', () => {
       // Act
       render(
         <TrackedCarousel ItemsTracker={ItemsTracker} className=''>
-          <img data-testid='stub-cover-image' />
+          <div data-testid='stub-cover-image' />
         </TrackedCarousel>
       )
 
@@ -53,7 +53,7 @@ describe('TrackedCarousel Component', () => {
       // Act
       render(
         <TrackedCarousel ItemsTracker={ItemsTracker} className=''>
-          <img />
+          <div />
         </TrackedCarousel>
       )
 
@@ -70,19 +70,19 @@ describe('TrackedCarousel Component', () => {
       // Act
       render(
         <TrackedCarousel ItemsTracker={ItemsTracker} className=''>
-          <img />
+          <div />
         </TrackedCarousel>
       )
       const [prevButton, nextButton] = screen.getAllByTestId('mocked-carousel-button')
+      const descendantIconPREV = screen.getByTestId('mocked-left-arrow-icon')
+      const descendantIconNEXT = screen.getByTestId('mocked-right-arrow-icon')
 
       // Assert
       expect(prevButton).toBeInTheDocument()
-      expect(prevButton.firstChild?.nodeName).toBe('svg')
-      expect(prevButton.children).toHaveLength(1)
+      expect(prevButton).toContainElement(descendantIconPREV)
 
       expect(nextButton).toBeInTheDocument()
-      expect(nextButton.firstChild?.nodeName).toBe('svg')
-      expect(nextButton.children).toHaveLength(1)
+      expect(nextButton).toContainElement(descendantIconNEXT)
     })
 
     it('SHOULD match mocked CarouselButton, LeftArrowIcon, RightArrowIcon components', () => {
@@ -90,14 +90,14 @@ describe('TrackedCarousel Component', () => {
       const ItemsTracker = (): JSX.Element => <span />
 
       // Act
-      const { getAllByTestId, getByTestId } = render(
+      render(
         <TrackedCarousel ItemsTracker={ItemsTracker} className=''>
-          <img />
+          <div />
         </TrackedCarousel>
       )
-      const [nextCarouselBtn, prevCarouselBtn] = getAllByTestId('mocked-carousel-button')
-      const leftArrowIcon = getByTestId('mocked-left-arrow-icon')
-      const rightArrowIcon = getByTestId('mocked-right-arrow-icon')
+      const [nextCarouselBtn, prevCarouselBtn] = screen.getAllByTestId('mocked-carousel-button')
+      const leftArrowIcon = screen.getByTestId('mocked-left-arrow-icon')
+      const rightArrowIcon = screen.getByTestId('mocked-right-arrow-icon')
 
       // Assert
       expect(nextCarouselBtn).toBeInTheDocument()

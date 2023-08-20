@@ -18,11 +18,13 @@ module.exports = {
         'jest/no-identical-title': 'error',
         'jest/prefer-to-have-length': 'warn',
         'jest/valid-expect': 'error',
+
         'jest/prefer-comparison-matcher': 'warn',
         'jest/no-standalone-expect': 'warn',
         'jest/valid-title': 'warn',
         'jest/no-large-snapshots': 'warn',
         'jest/no-deprecated-functions': 'warn',
+        
         'testing-library/await-async-query': 'error',
         'testing-library/no-await-sync-query': 'error',
         'testing-library/no-debugging-utils': 'warn',

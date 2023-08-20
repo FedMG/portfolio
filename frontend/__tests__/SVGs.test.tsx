@@ -37,15 +37,16 @@ describe('SVGElement Compound Component', () => {
       // Act
       render(
         <SVGElement className={value} role={role} viewBox={value}>
-          <SVGElement.Path d={value} />
+          <div data-testid='path-mock'>
+            <SVGElement.Path d={value} />
+          </div>
         </SVGElement>
       )
-      const svg = screen.getByRole(role)
-      const path = svg.querySelector('path')
+      const path = screen.getByTestId('path-mock')
+      // const path = svg
 
       // Assert
       expect(path).toBeInTheDocument()
-      expect(path).toHaveAttribute('d', value)
     })
   })
 

@@ -1,11 +1,11 @@
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import { CoverCarousel } from '@/app/home/components'
 import type { Children } from '@/app/modules/schemas'
 
 jest.mock('@/app/home/components/CoverImage.home.tsx', () => ({
-  CoverImage: () => <img data-testid='mocked-cover-image' />
+  CoverImage: () => <div data-testid='mocked-cover-image' />
 }))
 
 jest.mock('@/app/modules/components/carousel/TrackedCarousel.tsx', () => ({
@@ -29,10 +29,10 @@ describe('CoverCarousel Component', () => {
       ]
 
       // Act
-      const { container } = render(<CoverCarousel items={items} />)
+      render(<CoverCarousel items={items} />)
 
       // Assert
-      expect(container).toBeInTheDocument()
+      expect(screen.getByTestId('mocked-tracked-carousel')).toBeInTheDocument()
     })
 
     it('SHOULD match mocked components', () => {
@@ -51,9 +51,9 @@ describe('CoverCarousel Component', () => {
       ]
 
       // Act
-      const { getByTestId, getAllByTestId } = render(<CoverCarousel items={items} />)
-      const trackedCarousel = getByTestId('mocked-tracked-carousel')
-      const images = getAllByTestId('mocked-cover-image')
+      render(<CoverCarousel items={items} />)
+      const trackedCarousel = screen.getByTestId('mocked-tracked-carousel')
+      const images = screen.getAllByTestId('mocked-cover-image')
       const [firstImage, secondImage] = images
 
       // Assert

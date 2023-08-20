@@ -46,23 +46,7 @@ describe('FooterLayout component', () => {
       expect(github).toBeInTheDocument()
       expect(github).toContainElement(githubImage)
     })
-  })
 
-  describe('WHEN is mounted and user clicks a link', () => {
-    it('SHOULD sent the user to a social network page', async () => {
-      // Arrange
-
-      // Act
-      render(<FooterLayout />)
-      const [github, linkedIn] = await screen.findAllByRole('link')
-
-      // Assert
-      expect(github).toHaveAttribute('href', github.getAttribute('href'))
-      expect(linkedIn).toHaveAttribute('href', linkedIn.getAttribute('href'))
-    })
-  })
-
-  describe('WHEN is mounted', () => {
     it('SHOULD match with mocked footer, footerLink, githubIcon and LinkedInIcon text', () => {
       // Arrange
       const footerText = 'Mocked Footer Template Component'
@@ -78,6 +62,20 @@ describe('FooterLayout component', () => {
       expect(screen.getAllByText(footerLinkText)).toHaveLength(2)
       expect(screen.getByText(githubIconText)).toBeInTheDocument()
       expect(screen.getByText(linkedInIconText)).toBeInTheDocument()
+    })
+  })
+
+  describe('WHEN is mounted and user clicks a link', () => {
+    it('SHOULD sent the user to a social network page', async () => {
+      // Arrange
+
+      // Act
+      render(<FooterLayout />)
+      const [github, linkedIn] = await screen.findAllByRole('link')
+
+      // Assert
+      expect(github).toHaveAttribute('href', github.getAttribute('href'))
+      expect(linkedIn).toHaveAttribute('href', linkedIn.getAttribute('href'))
     })
   })
 })

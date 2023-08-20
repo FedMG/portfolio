@@ -1,6 +1,6 @@
-import { act, cleanup, render, renderHook } from '@testing-library/react'
+import { act, cleanup, render, renderHook, screen } from '@testing-library/react'
 import { useCarouselEffect } from '@/app/modules/hooks'
-import { forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 
 afterEach(cleanup)
 
@@ -32,25 +32,27 @@ describe('useCarouselEffect hook', () => {
       const eventPrevResponse = (): void => act(() => prev())
 
       // Assert
-      expect(eventNextResponse).toThrowError(errorMessage)
-      expect(eventPrevResponse).toThrowError(errorMessage)
+      expect(eventNextResponse).toThrow(errorMessage)
+      expect(eventPrevResponse).toThrow(errorMessage)
     })
   })
 
   describe('WHEN "ref" is set correctly', () => {
     it('SHOULD returns a reference of a HTMLElement', () => {
       // Arrange
-      const MockedComponent = forwardRef((_props, ref) => {
-        return <div ref={ref} />
+      const MockedComponent = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
+        return <div ref={ref} data-testid='container'></div>
       })
+      MockedComponent.displayName = 'MockedComponent'
 
       // Act
       const { result } = renderHook(() => useCarouselEffect())
       const { ref } = result.current
-      const { container } = render(<MockedComponent ref={ref} />)
+      render(<MockedComponent ref={ref} />)
+      const container = screen.getByTestId('container')
 
       // Assert
-      expect(ref.current).toBe(container.firstChild)
+      expect(ref.current).toContainElement(container)
     })
   })
 
@@ -59,7 +61,7 @@ describe('useCarouselEffect hook', () => {
       // Arrange
       const position = ['position 0', 'position 1']
 
-      const MockedComponent = forwardRef((_props, ref) => {
+      const MockedComponent = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
         return (
           <div ref={ref}>
             <span>{position[0]}</span>
@@ -67,6 +69,7 @@ describe('useCarouselEffect hook', () => {
           </div>
         )
       })
+      MockedComponent.displayName = 'MockedComponent'
 
       // Act
       const { result } = renderHook(() => useCarouselEffect())
@@ -91,34 +94,35 @@ describe('useCarouselEffect hook', () => {
       // Arrange
       const position = ['position 0', 'position 1']
 
-      const MockedComponent = forwardRef((_props, ref) => {
+      const MockedComponent = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
         return (
           <div ref={ref}>
-            <span>{position[0]}</span>
-            <span>{position[1]}</span>
+            <span data-testid='child-items'>{position[0]}</span>
+            <span data-testid='child-items'>{position[1]}</span>
           </div>
         )
       })
+      MockedComponent.displayName = 'MockedComponent'
 
       // Act
       const { result } = renderHook(() => useCarouselEffect())
-      const { container } = render(<MockedComponent ref={result.current.ref} />)
+      render(<MockedComponent ref={result.current.ref} />)
 
       // Assert
       expect(result.current.position).toBe(0)
-      expect(container.firstChild).toHaveTextContent(position[0])
+      expect(screen.getAllByTestId('child-items')[0]).toHaveTextContent(position[0])
 
       act(() => result.current.next())
       expect(result.current.position).toBe(1)
-      expect(container.firstChild).toHaveTextContent(position[1])
+      expect(screen.getAllByTestId('child-items')[1]).toHaveTextContent(position[1])
 
       act(() => result.current.next())
       expect(result.current.position).toBe(0)
-      expect(container.firstChild).toHaveTextContent(position[0])
+      expect(screen.getAllByTestId('child-items')[0]).toHaveTextContent(position[0])
 
       act(() => result.current.prev())
       expect(result.current.position).toBe(1)
-      expect(container.firstChild).toHaveTextContent(position[1])
+      expect(screen.getAllByTestId('child-items')[0]).toHaveTextContent(position[1])
     })
   })
 })

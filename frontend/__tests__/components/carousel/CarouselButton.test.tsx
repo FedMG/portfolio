@@ -24,7 +24,7 @@ describe('CarouselButton Component', () => {
       // Arrange
       const user = userEvent.setup()
       const onClick = jest.fn()
-      const buttonIcon = <img />
+      const buttonIcon = <div data-testid='button-icon-test' />
       const ariaLabel = 'Slide Item to the left'
 
       // Act
@@ -36,7 +36,7 @@ describe('CarouselButton Component', () => {
 
       // Assert
       const button = await screen.findByRole('button')
-      const icon = screen.getByRole('img')
+      const icon = screen.getByTestId('button-icon-test')
       await user.click(button)
 
       // // Assert
