@@ -1,5 +1,5 @@
 import { withTrackerPosition } from '@/app/modules/hocs'
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 
 afterEach(() => {
   cleanup()
@@ -54,11 +54,11 @@ describe('withTrackerPosition HOC', () => {
       const spy = jest.spyOn(spied, 'EnhancedIconComponent')
 
       // Act
-      const { getAllByTestId } = render(<spied.EnhancedIconComponent position={0} />)
+      render(<spied.EnhancedIconComponent position={0} />)
 
       // Assert
       expect(spy).toHaveBeenCalledTimes(1)
-      expect(getAllByTestId('icon-component')).toHaveLength(3)
+      expect(screen.getAllByTestId('icon-component')).toHaveLength(3)
     })
 
     it('SHOULD admit a position property', () => {

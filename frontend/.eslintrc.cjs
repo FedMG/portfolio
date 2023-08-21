@@ -2,7 +2,9 @@ module.exports = {
   // rules that applies to global project
   // plugins: ["testing-library", "jest"],
   root: true,
-  extends: ['next/core-web-vitals'],
+  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
   rules: {},
   overrides: [
     {
@@ -16,11 +18,13 @@ module.exports = {
         'jest/no-identical-title': 'error',
         'jest/prefer-to-have-length': 'warn',
         'jest/valid-expect': 'error',
+
         'jest/prefer-comparison-matcher': 'warn',
         'jest/no-standalone-expect': 'warn',
         'jest/valid-title': 'warn',
         'jest/no-large-snapshots': 'warn',
         'jest/no-deprecated-functions': 'warn',
+        
         'testing-library/await-async-query': 'error',
         'testing-library/no-await-sync-query': 'error',
         'testing-library/no-debugging-utils': 'warn',

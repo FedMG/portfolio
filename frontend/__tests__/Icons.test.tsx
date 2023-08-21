@@ -29,8 +29,10 @@ components.forEach(({ Element, name, role }) => {
         // Act
         render(<Element className={classValue} />)
         const svg = screen.getByRole(role)
+        /* eslint-disable testing-library/no-node-access */
         const path = svg.querySelector('path')
         const title = svg.querySelector('title')
+        /* eslint-disable testing-library/no-node-access */
         // Assert
         expect(svg).toBeInTheDocument()
         expect(svg).toHaveAttribute('class')
@@ -38,7 +40,10 @@ components.forEach(({ Element, name, role }) => {
         expect(path).toBeInTheDocument()
 
         if (title != null) {
+          // eslint-disable-next-line jest/no-conditional-expect
           expect(title).toBeInTheDocument()
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(title).toBeInstanceOf(SVGTitleElement)
         }
       })
     })
