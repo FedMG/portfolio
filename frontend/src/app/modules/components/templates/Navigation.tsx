@@ -11,5 +11,3 @@ export const Navigation: FC<NavigationProps> = ({ children, ariaLabel, className
     {children}
   </nav>
 )
-
-export default Navigation
