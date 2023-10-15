@@ -2,7 +2,6 @@ import { FooterLayout, HeaderLayout, headerPages } from './modules/components/la
 
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Providers } from './providers'
 import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,11 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Providers>
-          <HeaderLayout pages={headerPages} />
-          {children}
-          <FooterLayout />
-        </Providers>
+        <HeaderLayout pages={headerPages} />
+        {children}
+        <FooterLayout />
       </body>
     </html>
   )
