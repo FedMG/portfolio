@@ -21,7 +21,7 @@ export interface Project {
   id: number
   title: string
   description: string
-  "tech-stack": string[]
+  'tech-stack': string[]
   image: Image
   links: Links
 }

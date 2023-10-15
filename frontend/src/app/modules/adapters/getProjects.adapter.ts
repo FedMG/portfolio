@@ -25,7 +25,6 @@ class Adapter {
   }
 }
 
-
 class ProjectAdapter extends Adapter {
   public adaptAll(response: EndpointProject[]): Project[] {
     return response.map(this.adapter)
