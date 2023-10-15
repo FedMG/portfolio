@@ -1,12 +1,9 @@
-import { CoverCarousel } from './home/components'
-import { slides } from './home/data.ref'
-import { Button } from '@nextui-org/button'
+import { getProjects } from './modules/services'
 
-export default function Home(): JSX.Element {
+export default async function Home(): Promise<JSX.Element> {
+  const projects = await getProjects()
   return (
     <main>
-      <CoverCarousel items={slides} />
-      <Button>Click on me!</Button>
     </main>
   )
 }
