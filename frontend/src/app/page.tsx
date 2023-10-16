@@ -1,7 +1,6 @@
 import { getProjects } from './modules/services'
 
-import { ProjectCarousel } from "./home/components/projects/Carousel.project";
-
+import { ProjectCarousel } from './home/components/projects/Carousel.project'
 
 export default async function Home(): Promise<JSX.Element> {
   const projects = await getProjects()

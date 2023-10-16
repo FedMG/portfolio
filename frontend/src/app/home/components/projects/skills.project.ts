@@ -1,4 +1,4 @@
-type Techs =  { [key: string]:  { name: string, color: string } }
+type Techs = { [key: string]: { name: string; color: string } }
 
 export const TECHS: Techs = Object.freeze({
   html5: {
@@ -77,7 +77,6 @@ export const TECHS: Techs = Object.freeze({
     name: 'AWS',
     color: 'bg-[#232F3E]'
   }
-
 })
 
 // const formattedTECHS = {};

@@ -1,6 +1,6 @@
-import { BaseComponentProps } from "@/app/modules/schemas"
+import { BaseComponentProps } from '@/app/modules/schemas'
 
-type Props = Partial<Pick<BaseComponentProps, 'children'| 'className'>>
+type Props = Partial<Pick<BaseComponentProps, 'children' | 'className'>>
 
 export const ProjectTitle = ({ children, className }: Props) => (
   <div>

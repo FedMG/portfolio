@@ -25,16 +25,12 @@ export const ProjectModal = ({ children, image: { src, alt }, className }: Props
       <Modal show={isOpen === 'default'} onClose={close}>
         <Modal.Header>{children}</Modal.Header>
         <Modal.Body>
-            <ProjectModalImage alt={alt} src={src} />
+          <ProjectModalImage alt={alt} src={src} />
         </Modal.Body>
       </Modal>
     </>
   )
 }
-
-
-
-
 
 // // xl:max-w-[610px] lg:max-w-[595px] md:max-w-[550px] sm:max-w-[455px] xs:max-w-[400px] max-w-[410px]
 // export const ProjectImage = ({ src, alt, quality = 40 }: Props) => (
