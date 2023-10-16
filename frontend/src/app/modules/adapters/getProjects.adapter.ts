@@ -20,7 +20,7 @@ class Adapter {
       description,
       image: _image,
       links: _links,
-      'tech-stack': technologies
+      techStack: technologies
     }
   }
 }
