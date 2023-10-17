@@ -5,11 +5,23 @@ export const TECHS: Techs = Object.freeze({
     name: 'HTML5',
     color: 'bg-[#E34F26]'
   },
+  'react.js': {
+    name: 'ReactJS',
+    color: 'bg-[#61DBFB]'
+  },
+  cloudinary: {
+    name: 'Cloudinary',
+    color: 'bg-[#0047AB]'
+  },
+  bash: {
+    name: 'Bash',
+    color: 'bg-[#666666]'
+  },
   javascript: {
     name: 'Javascript',
     color: 'bg-[#F7DF1E]'
   },
-  nodejs: {
+  'node.js': {
     name: 'NodeJS',
     color: 'bg-[#339933]'
   },
@@ -31,7 +43,7 @@ export const TECHS: Techs = Object.freeze({
   },
   mongodb: {
     name: 'MongoDB',
-    color: 'bg-[#47A248]'
+    color: 'bg-[#009E60]'
   },
   mongoose: {
     name: 'Mongoose',
@@ -41,7 +53,7 @@ export const TECHS: Techs = Object.freeze({
     name: 'Styled components',
     color: 'bg-[#DB7093]'
   },
-  tailwind: {
+  tailwindcss: {
     name: 'Tailwind',
     color: 'bg-[#06B6D4]'
   },

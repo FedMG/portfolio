@@ -9,7 +9,7 @@ export default async function Home(): Promise<JSX.Element> {
   return (
     <>
       <ProjectCarousel projects={projects} />
-      <section className='relative py-[200px]'>
+      <section className='relative py-[140px] md:py-[200px]'>
         <WavesShape
           fill={{
             firstWave: 'fill-slate-700',
