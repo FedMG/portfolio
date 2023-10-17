@@ -21,28 +21,30 @@ const customTheme: CustomFlowbiteTheme['carousel'] = {
 }
 
 export const ProjectCarousel = ({ projects }: Props) => (
-  <Carousel
-    theme={customTheme}
-    pauseOnHover
-    slideInterval={4000}
-    indicators={false}
-    className='h-[420px]'>
-    {projects.map(({ id, image, title, techStack, description, links }) => (
-      <div
-        key={id}
-        className='max-w-[800px] max-h-[400px] w-full h-full py-3 px-8 flex align-center justify-between gap-x-6'>
-        <ProjectCard image={image} links={links}>
-          <ProjectTitle>{title}</ProjectTitle>
-        </ProjectCard>
+  <section id='home' className='py-[55px]'>
+    <Carousel
+      theme={customTheme}
+      pauseOnHover
+      slideInterval={4000}
+      indicators={false}
+      className='h-[420px]'>
+      {projects.map(({ id, image, title, techStack, description, links }) => (
+        <div
+          key={id}
+          className='max-w-[800px] max-h-[400px] w-full h-full py-3 px-8 flex align-center justify-between gap-x-6'>
+          <ProjectCard image={image} links={links}>
+            <ProjectTitle>{title}</ProjectTitle>
+          </ProjectCard>
 
-        <div className='flex flex-col max-w-[350px] w-full overflow-auto h-full gap-5 px-2'>
-          <ProjectTitle className='border-b border-gray-300'>{title}</ProjectTitle>
-          <BadgesTechnologies technologies={techStack} />
-          <div>
-            <p className='text-left text-base leading-relaxed text-gray-500'>{description}</p>
+          <div className='flex flex-col max-w-[350px] w-full overflow-auto h-full gap-5 px-2'>
+            <ProjectTitle className='border-b border-gray-300'>{title}</ProjectTitle>
+            <BadgesTechnologies technologies={techStack} />
+            <div>
+              <p className='text-left text-base leading-relaxed text-gray-500'>{description}</p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </Carousel>
+      ))}
+    </Carousel>
+  </section>
 )

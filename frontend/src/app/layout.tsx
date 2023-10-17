@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang='en' className='scroll-smooth'>
+      <body className={`${inter.className} bg-gray-50 h-full relative pb-16`}>
         <HeaderLayout pages={headerPages} />
-        {children}
+        <main className='h-full min-h-screen max-h-full space-y-[20]'>{children}</main>
         <FooterLayout />
       </body>
     </html>

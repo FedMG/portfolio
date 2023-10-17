@@ -1,13 +1,24 @@
 import { getProjects } from './modules/services'
 
-import { ProjectCarousel } from './home/components/projects/Carousel.project'
+import { WavesShape } from './home/components'
+import { AboutMeBoard } from './home/components/about'
+import { ProjectCarousel } from './home/components/projects'
 
 export default async function Home(): Promise<JSX.Element> {
   const projects = await getProjects()
-  // <main className='border border-red-600 h-screen'>
   return (
-    <main className=''>
+    <>
       <ProjectCarousel projects={projects} />
-    </main>
+      <section className='relative py-[200px]'>
+        <WavesShape
+          fill={{
+            firstWave: 'fill-slate-700',
+            secondWave: 'fill-slate-700',
+            thirdWave: 'fill-slate-700'
+          }}
+        />
+      </section>
+      <AboutMeBoard />
+    </>
   )
 }
