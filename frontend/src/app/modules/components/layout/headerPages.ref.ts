@@ -2,11 +2,15 @@ import { HeaderLayoutProps } from './HeaderLayout'
 
 export const headerPages: HeaderLayoutProps[] = [
   {
-    path: '/',
+    path: '#home',
     label: 'Home'
   },
   {
-    path: '/about',
+    path: '#about-me',
     label: 'About me'
+  },
+  {
+    path: '#contact',
+    label: 'Contact'
   }
 ]

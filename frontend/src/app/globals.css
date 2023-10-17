@@ -21,3 +21,19 @@ body {
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
 }
+
+.shape-variable-width {
+  width: calc(100% + 1.3px);
+}
+
+@media (max-width: 737px) {
+  .shape-variable-width {
+    width: calc(140% + 1.3px);
+  }
+}
+
+@media (max-width: 450px) {
+  .shape-variable-width {
+    width: calc(165% + 1.3px);
+  }
+}

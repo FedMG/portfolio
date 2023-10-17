@@ -1,8 +1,8 @@
-import { GithubIcon, LinkedInIcon } from '../../assets'
+import { FolderIcon, GithubIcon, LinkedInIcon } from '../../assets'
 import { Footer } from '../templates'
 import { FooterLink } from './FooterLink'
 
-const PAGE_ALIGN_BREAKPOINT = 'py-8 px-14 sm:px-10 lg:px-16 xl:px-24 mt-5'
+const PAGE_ALIGN_BREAKPOINT = 'py-8 px-14 sm:px-10 lg:px-[140px] xl:px-[150px] mt-5'
 
 export const FooterLayout = (): JSX.Element => {
   return (
@@ -10,6 +10,7 @@ export const FooterLayout = (): JSX.Element => {
       ariaLabel='footer'
       className='absolute top-full w-full bg-gray-100 border-t border-gray-200'>
       <div
+        id='contact'
         className={`${PAGE_ALIGN_BREAKPOINT} w-full flex flex-col sm:flex-row space-around items-center border-t bg-black border-gray-200`}>
         <p className='sm:w-full sm:order-none order-2 text-sm text-white'>
           © 2023 AstraDev™ Copyright
@@ -27,6 +28,13 @@ export const FooterLayout = (): JSX.Element => {
             href='https://github.com/FedMG'
             className='text-white hover:bg-gray-50 hover:text-black rounded-md active:bg-black active:text-white'>
             <GithubIcon className='fill-current' />
+          </FooterLink>
+
+          <FooterLink
+            ariaLabel={"Go to my Portfolio's repository on GitHub"}
+            href='https://github.com/FedMG/portfolio'
+            className='text-white hover:bg-gray-50 hover:text-black rounded-md active:bg-black active:text-white'>
+            <FolderIcon className='fill-current' />
           </FooterLink>
         </div>
       </div>
