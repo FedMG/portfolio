@@ -1,7 +1,7 @@
 [
   {
     "title": "E-commerce Fullstask",
-    "description": "I developed an e-commerce website. The application follows a monolithic architecture with the frontend consuming a RESTful API. To optimize SEO, I incorporated Server-Side Rendering (SSR) and Static Site Generation (SSG). To enhance scalability, I adhered to Clean Architecture and SOLID principles. Moreover, I improved accessibility by implementing ARIA attributes.",
+    "description": "I designed and created an e-commerce website. The application follows a monolithic architecture with the frontend consuming a RESTful API. To optimize SEO, I incorporated Server-Side Rendering (SSR) and Static Site Generation (SSG). To enhance scalability, I adhered to Clean Architecture and SOLID principles. Moreover, I improved accessibility by implementing ARIA attributes.",
     "technologies": ["React.js", "Next.js", "TypeScript", "TailwindCSS"],
     "image": {
       "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230013/portfolio-projects/e-commerce-homepage-2_nd31fj.webp",
@@ -28,7 +28,7 @@
   {
     "title": "Snapshot Serializer",
     "technologies": ["TypeScript", "Pretty-format", "Jest", "Testing Library"],
-    "description": "I developed a TypeScript Pretty-format Plugin, which proves highly valuable for applying snapshot tests with Jest & Testing Library. The plugin filters snapshot attributes, providing precise test control and improving the testing workflow. Additionally, it includes a feature to exclude specific attributes from filtering, further enhancing its flexibility",
+    "description": "I built a TypeScript Pretty-format Plugin, which proves highly valuable for applying snapshot tests with Jest & Testing Library. The plugin filters snapshot attributes, providing precise test control and improving the testing workflow. Additionally, it includes a feature to exclude specific attributes from filtering, further enhancing its flexibility",
     "image": {
       "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230557/portfolio-projects/serializer-test_vlsi03.webp",
       "alt": "A test example using the serialiser to clean specified attributes from the snapshot."
@@ -39,7 +39,7 @@
   },
   {
     "title": "Salon Appointment Scheduler",
-    "description": "I developed a Dynamic Bash Script integrated with a PostgreSQL database to manage a Salon Appointment Scheduler application using various commands. To optimize data management, I created different tables with efficient JOINS. The script allows the creation of new users and facilitates the scheduling of appointments for one or multiple services within the required schedule. I utilized various types of inserts and SQL queries to store and validate user inputs against the relational database. Additionally, I enhanced the terminal's visualization using Bash styles. This project is one of five in-depth challenges I completed using Bash and PostgreSQL, available on my GitHub repository",
+    "description": "I programmed a Dynamic Bash Script integrated with a PostgreSQL database to manage a Salon Appointment Scheduler application using various commands. To optimize data management, I created different tables with efficient JOINS. The script allows the creation of new users and facilitates the scheduling of appointments for one or multiple services within the required schedule. I utilized various types of inserts and SQL queries to store and validate user inputs against the relational database. Additionally, I enhanced the terminal's visualization using Bash styles. This project is one of five in-depth challenges I completed using Bash and PostgreSQL, available on my GitHub repository",
     "technologies": ["Bash", "PostgreSQL"],
     "image": {
       "src": "https://res.cloudinary.com/dgwvlhihb/image/upload/v1692230180/portfolio-projects/salon-result-1_r9umsc.webp",
