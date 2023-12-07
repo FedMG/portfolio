@@ -20,8 +20,8 @@ export const AboutMeBoard = () => (
 
         <span className='block'>
           Over the years, I have spent my time honing my skills as a self-taught software developer,
-          adapting to the dynamic circumstances of the industry. Currently, I am expanding my
-          knowledge by pursuing a Bachelor&apos;s degree in Data Science at the University of Buenos
+          adapting to the dynamic circumstances of the industry. Next year I will expand my
+          knowledge by starting a Bachelor&apos;s degree in Data Science at the University of Buenos
           Aires.
         </span>
 
