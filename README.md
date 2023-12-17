@@ -1,4 +1,4 @@
-# My Personal Portfolio
+i# My Personal Portfolio
 
 ## CLIENT
 
@@ -36,11 +36,6 @@ Visit [Portfolio API](https://portfolio-api-9toi.onrender.com/)
 #### Mobile
 
 <img src="/public/portfolio-modal-mobile.webp" alt="An image of the project modal in a mobile resolution" width="500" />
-
-
-### About me
-
-<img src="/public/portfolio-about-page.webp" alt="An image of the about me section" width="500" />
 
 
 ### Portfolio API
